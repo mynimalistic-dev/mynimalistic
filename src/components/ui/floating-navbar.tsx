@@ -8,6 +8,7 @@ import {
   useTransform
 } from "framer-motion";
 import { Menu, X } from "lucide-react";
+import { ThemeToggle } from "./theme-toggle";
 
 const navItems = [
   { name: "Home", href: "#" },
@@ -78,7 +79,7 @@ function MovingBorder({
       >
         <rect
           fill="none"
-          stroke="white"
+          stroke="currentColor"
           strokeOpacity="0.2"
           strokeWidth="1"
           width="100%"
@@ -86,6 +87,7 @@ function MovingBorder({
           rx={rx}
           ry={ry}
           ref={pathRef}
+          className="text-slate-800 dark:text-white"
         />
       </svg>
       <motion.div
@@ -117,69 +119,102 @@ export function FloatingNavbar() {
         {/* Moving border container */}
         <div className="absolute inset-0">
           <MovingBorder duration={5000} rx="16px" ry="16px">
-            <div className="h-14 w-14 opacity-[0.7] bg-[radial-gradient(var(--tw-gradient-stops))] from-sky-500 to-transparent" />
+            <div className="h-14 w-14 opacity-[0.7] bg-[radial-gradient(var(--tw-gradient-stops))] from-blue-500 to-transparent dark:from-sky-500" />
           </MovingBorder>
         </div>
 
         {/* Content container */}
-        <div className="relative rounded-2xl bg-slate-900/[0.8] border border-slate-800 backdrop-blur-xl">
+        <div className="relative rounded-2xl bg-white/80 dark:bg-slate-900/[0.8] border border-slate-200 dark:border-slate-800 backdrop-blur-xl">
           <div className="px-6 py-4">
-            {/* Rest of the navbar content remains the same */}
             <div className="flex items-center justify-between">
               <motion.p 
-                className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-sky-400 via-sky-500 to-sky-600"
+                className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-sky-600 dark:from-sky-400 dark:via-sky-500 dark:to-sky-600"
                 whileHover={{ scale: 1.02 }}
               >
                 Mynimalistic
               </motion.p>
 
-              <nav className="hidden md:flex items-center gap-5">
-                {navItems.map((item) => (
-                  <motion.a
-                    key={item.name}
-                    href={item.href}
-                    onClick={() => setActiveItem(item.name)}
-                    className={`relative px-3 py-1.5 text-sm font-medium transition-colors duration-300 ${
-                      activeItem === item.name 
-                        ? 'text-sky-500' 
-                        : 'text-neutral-400 hover:text-sky-400'
-                    }`}
-                    whileHover={{ y: -1 }}
+              <div className="flex items-center gap-4">
+                {/* Theme Toggle - Mobile/Tablet Only */}
+                <div className="block lg:hidden">
+                  <ThemeToggle />
+                </div>
+
+                {/* Desktop Navigation */}
+                <nav className="hidden lg:flex items-center gap-5">
+                  {navItems.map((item) => (
+                    <motion.a
+                      key={item.name}
+                      href={item.href}
+                      onClick={() => setActiveItem(item.name)}
+                      className={`relative px-3 py-1.5 text-sm font-medium transition-colors duration-300 ${
+                        activeItem === item.name 
+                          ? 'text-blue-600 dark:text-sky-500' 
+                          : 'text-gray-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-sky-400'
+                      }`}
+                      whileHover={{ y: -1 }}
+                    >
+                      {item.name}
+                      {activeItem === item.name && (
+                        <motion.div
+                          className="absolute inset-0 rounded-lg bg-blue-100/50 dark:bg-sky-400/[0.1]"
+                          layoutId="navbar-active"
+                          transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+                        />
+                      )}
+                    </motion.a>
+                  ))}
+
+                  {/* Theme Toggle - Desktop Only */}
+                  <div className="hidden lg:block">
+                    <ThemeToggle />
+                  </div>
+
+                  {/* Contact Button */}
+                  <motion.button
+                    whileHover={{ scale: 1.05 }}
+                    whileTap={{ scale: 0.95 }}
+                    className="relative px-5 py-2 rounded-lg text-white text-sm font-medium overflow-hidden group"
                   >
-                    {item.name}
-                    {activeItem === item.name && (
-                      <motion.div
-                        className="absolute inset-0 rounded-lg bg-sky-400/[0.1]"
-                        layoutId="navbar-active"
-                        transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
-                      />
-                    )}
-                  </motion.a>
-                ))}
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 dark:from-sky-400 dark:via-blue-500 dark:to-sky-500" />
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
+                    <span className="relative flex items-center gap-2">
+                      <svg
+                        className="w-4 h-4"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                      Contact Us
+                    </span>
+                  </motion.button>
+                </nav>
+
+                {/* Mobile Menu Button */}
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="relative px-5 py-2 rounded-lg text-white text-sm font-medium bg-gradient-to-r from-sky-400 to-sky-600 shadow-[0_2px_20px_rgba(56,189,248,0.2)] hover:shadow-[0_2px_24px_rgba(56,189,248,0.3)] transition-shadow"
+                  onClick={() => setIsOpen(!isOpen)}
+                  className="lg:hidden relative p-2.5 rounded-xl bg-white/50 dark:bg-slate-900/50 border border-slate-200/50 dark:border-slate-800/50 backdrop-blur-sm hover:border-blue-500/50 dark:hover:border-sky-500/50 transition-colors duration-300"
                 >
-                  Get Started
+                  {isOpen ? (
+                    <X className="w-5 h-5 text-blue-600 dark:text-sky-400" />
+                  ) : (
+                    <Menu className="w-5 h-5 text-blue-600 dark:text-sky-400" />
+                  )}
                 </motion.button>
-              </nav>
-
-              <motion.button
-                whileHover={{ scale: 1.05 }}
-                whileTap={{ scale: 0.95 }}
-                onClick={() => setIsOpen(!isOpen)}
-                className="md:hidden relative p-2.5 rounded-xl bg-slate-900/50 border border-slate-800/50 backdrop-blur-sm hover:border-sky-500/50 transition-colors duration-300"
-              >
-                {isOpen ? (
-                  <X className="w-5 h-5 text-sky-400" />
-                ) : (
-                  <Menu className="w-5 h-5 text-sky-400" />
-                )}
-              </motion.button>
+              </div>
             </div>
           </div>
 
+          {/* Mobile Menu */}
           <AnimatePresence>
             {isOpen && (
               <motion.div
@@ -187,7 +222,7 @@ export function FloatingNavbar() {
                 animate={{ opacity: 1, height: "auto" }}
                 exit={{ opacity: 0, height: 0 }}
                 transition={{ duration: 0.2 }}
-                className="md:hidden border-t border-slate-800/50"
+                className="lg:hidden border-t border-slate-200 dark:border-slate-800/50"
               >
                 <nav className="flex flex-col gap-1 p-4">
                   {navItems.map((item) => (
@@ -196,8 +231,8 @@ export function FloatingNavbar() {
                       href={item.href}
                       className={`relative group px-4 py-3 rounded-xl transition-all duration-300 ${
                         activeItem === item.name
-                          ? 'text-sky-400 bg-sky-400/[0.08]'
-                          : 'text-neutral-300 hover:text-sky-400 hover:bg-sky-400/[0.05]'
+                          ? 'text-blue-600 dark:text-sky-400 bg-blue-50 dark:bg-sky-400/[0.08]'
+                          : 'text-gray-600 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-sky-400 hover:bg-blue-50 dark:hover:bg-sky-400/[0.05]'
                       }`}
                       onClick={() => {
                         setActiveItem(item.name);
@@ -211,44 +246,43 @@ export function FloatingNavbar() {
                           <motion.div
                             initial={{ scale: 0 }}
                             animate={{ scale: 1 }}
-                            className="h-1.5 w-1.5 rounded-full bg-sky-400"
+                            className="h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-sky-400"
                           />
                         )}
                       </div>
                       {activeItem === item.name && (
                         <motion.div
                           layoutId="mobile-active-pill"
-                          className="absolute inset-0 rounded-xl bg-gradient-to-r from-sky-400/10 to-transparent"
+                          className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-50 to-transparent dark:from-sky-400/10 dark:to-transparent"
                           transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
                         />
                       )}
                     </motion.a>
                   ))}
                   
+                  {/* Mobile/Tablet Get Started Button */}
                   <motion.button
                     whileHover={{ scale: 1.01 }}
                     whileTap={{ scale: 0.99 }}
                     className="relative mt-2 px-4 py-3 rounded-xl text-white text-sm font-medium overflow-hidden group"
                   >
-                    <div className="absolute inset-0 bg-gradient-to-r from-sky-400 to-sky-600 opacity-90 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(120,166,255,0.1),transparent_50%)]" />
+                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 dark:from-sky-400 dark:via-blue-500 dark:to-sky-500 opacity-90 group-hover:opacity-100 transition-opacity" />
+                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
                     <span className="relative flex items-center justify-center gap-2">
-                      Get Started
-                      <motion.svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
-                        viewBox="0 0 24 24"
+                      <svg
+                        className="w-4 h-4"
                         fill="none"
                         stroke="currentColor"
-                        strokeWidth="2"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        className="group-hover:translate-x-1 transition-transform"
+                        viewBox="0 0 24 24"
                       >
-                        <path d="M5 12h14" />
-                        <path d="m12 5 7 7-7 7" />
-                      </motion.svg>
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                      Contact Us
                     </span>
                   </motion.button>
                 </nav>
