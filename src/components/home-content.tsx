@@ -61,7 +61,7 @@ export function HomeContent() {
                   className="relative p-6 rounded-2xl bg-gradient-to-br from-white to-blue-50/50 dark:from-blue-500/5 dark:to-indigo-500/5 border border-blue-100/50 dark:border-blue-500/10 shadow-[0_8px_32px_rgba(14,165,233,0.15)] dark:shadow-none"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-sky-50/50 dark:from-blue-500/10 dark:to-indigo-500/10 rounded-2xl blur-2xl opacity-50" />
-                  <p className="relative text-blue-950 dark:text-gray-300 text-lg leading-relaxed">
+                  <p className="relative text-blue-950 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
                     Transforming ideas into scalable solutions with cutting-edge technology
                     and innovative development.
                   </p>
