@@ -1,6 +1,7 @@
 import { HomeContent } from "@/components/home-content";
 import { FeaturedSection } from "@/components/FeaturedSection";
 import { ServicesSection } from "@/components/ServicesSection";
+import { ProcessSection } from "@/components/ProcessSection";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <HomeContent />
       <FeaturedSection />
       <ServicesSection />
+      <ProcessSection />
     </main>
   );
 } 
