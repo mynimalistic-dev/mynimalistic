@@ -235,7 +235,7 @@ export const ProcessSection = () => {
             whileInView={{ opacity: 1, y: 0 }}
             className="space-y-4"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white bg-clip-text text-transparent">
+            <h2 className="text-4xl md:text-5xl font-bold text-black dark:text-white bg-clip-text">
               Our Development Process
             </h2>
             <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
