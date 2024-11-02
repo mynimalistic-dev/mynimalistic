@@ -1,9 +1,9 @@
 "use client";
 import React from "react";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils/cn";
 
-const Card3D = ({
+export const Card3D = ({
   children,
   className,
 }: {
@@ -16,8 +16,8 @@ const Card3D = ({
   const mouseXSpring = useSpring(x);
   const mouseYSpring = useSpring(y);
 
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["17.5deg", "-17.5deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-17.5deg", "17.5deg"]);
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["7.5deg", "-7.5deg"]);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-7.5deg", "7.5deg"]);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -46,10 +46,7 @@ const Card3D = ({
         transformStyle: "preserve-3d",
       }}
       className={cn(
-        "relative h-96 w-72 rounded-xl",
-        "bg-gradient-to-br from-violet-600/40 to-purple-600/40",
-        "border border-violet-500/20",
-        "group cursor-pointer transition-all duration-150 ease-out hover:scale-105",
+        "relative h-96 w-full rounded-2xl bg-gradient-to-br from-sky-100 to-blue-100 dark:from-sky-900/40 dark:to-blue-900/40 border border-sky-200 dark:border-sky-800 group cursor-pointer transition-all duration-150 ease-out hover:scale-105",
         className
       )}
     >
@@ -58,12 +55,10 @@ const Card3D = ({
           transform: "translateZ(75px)",
           transformStyle: "preserve-3d",
         }}
-        className="absolute inset-4 rounded-xl bg-black/80 p-6 shadow-lg backdrop-blur-sm"
+        className="absolute inset-4 rounded-xl bg-white/90 dark:bg-black/80 p-6 shadow-lg backdrop-blur-sm"
       >
         {children}
       </div>
     </motion.div>
   );
-};
-
-export { Card3D }; 
+}; 
