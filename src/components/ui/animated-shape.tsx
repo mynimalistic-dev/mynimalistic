@@ -7,7 +7,7 @@ export function AnimatedShape() {
     <div className="relative w-full h-[600px]">
       {/* Background glow */}
       <motion.div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-sky-500/30 rounded-full blur-[100px]"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[450px] h-[450px] bg-sky-300/30 dark:bg-sky-500/30 rounded-full blur-[100px]"
         animate={{
           scale: [1, 1.2, 1],
           opacity: [0.3, 0.5, 0.3],
@@ -72,24 +72,24 @@ export function AnimatedShape() {
               <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
                 <motion.stop
                   offset="0%"
-                  stopColor="#0EA5E9"
+                  className="text-blue-900 dark:text-sky-400"
                   animate={{
-                    stopColor: ["#0EA5E9", "#38BDF8", "#0EA5E9"],
+                    stopColor: ["currentColor", "rgb(30 58 138)", "currentColor"], // blue-900
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
                 />
                 <motion.stop
                   offset="100%"
-                  stopColor="#38BDF8"
+                  className="text-sky-900 dark:text-sky-500"
                   animate={{
-                    stopColor: ["#38BDF8", "#0EA5E9", "#38BDF8"],
+                    stopColor: ["currentColor", "rgb(12 74 110)", "currentColor"], // sky-900
                   }}
                   transition={{ duration: 3, repeat: Infinity }}
                 />
               </linearGradient>
               <linearGradient id="glowGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#0EA5E9" stopOpacity="0.5" />
-                <stop offset="100%" stopColor="#38BDF8" stopOpacity="0.5" />
+                <stop offset="0%" className="text-blue-900/50 dark:text-sky-400/50" stopOpacity="0.5" />
+                <stop offset="100%" className="text-sky-900/50 dark:text-sky-500/50" stopOpacity="0.5" />
               </linearGradient>
             </defs>
           </motion.svg>
