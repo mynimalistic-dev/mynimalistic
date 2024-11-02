@@ -4,7 +4,7 @@ import { SpotlightButton } from "./ui/spotlight-button";
 import { FloatingNavbar } from "./ui/floating-navbar";
 import { AnimatedText } from "./ui/animated-text";
 import { motion } from "framer-motion";
-import { AnimatedShape } from "./ui/animated-shape";
+import { MinimalAnimatedShape } from "./ui/minimal-animated-shape";
 
 export function HomeContent() {
   return (
@@ -28,15 +28,20 @@ export function HomeContent() {
         />
       </div>
 
-      <main className="relative z-10 pt-0 md:pt-16 pb-16 px-4 md:px-8">
-        <div className="max-w-7xl mx-auto">
+      <main className="relative z-10 min-h-screen flex items-center justify-center px-4 sm:px-6 lg:px-8">
+        <div className="max-w-7xl w-full mx-auto py-12 sm:py-16 lg:py-20">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
-            <div className="w-full lg:w-auto lg:flex-1 space-y-6 lg:space-y-10 order-2 lg:order-none">
-              {/* Updated Badge with animated dot */}
+            {/* Content Section */}
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              className="w-full lg:w-[45%] space-y-6 lg:space-y-8 order-2 lg:order-none"
+            >
+              {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 via-sky-50 to-blue-50 dark:from-blue-500/10 dark:to-indigo-500/10 border border-blue-200/50 dark:border-blue-500/20 shadow-[0_2px_20px_rgba(14,165,233,0.15)] dark:shadow-none"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-50 via-sky-50 to-blue-50 dark:from-blue-500/10 dark:to-indigo-500/10 border border-blue-200/50 dark:border-blue-500/20 shadow-[0_2px_20px_rgba(14,165,233,0.15)] dark:shadow-none backdrop-blur-sm"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 dark:bg-sky-400 opacity-75"></span>
@@ -51,17 +56,17 @@ export function HomeContent() {
               <div className="space-y-6">
                 <AnimatedText
                   text="Building Digital Future Together"
-                  className="text-4xl sm:text-5xl md:text-[46px] lg:text-[56px] font-bold leading-tight tracking-tight bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent"
+                  className="text-[35px] sm:text-4xl md:text-5xl lg:text-[50px] font-bold leading-tight tracking-tight bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent"
                 />
                 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="relative p-6 rounded-2xl bg-gradient-to-br from-white to-blue-50/50 dark:from-blue-500/5 dark:to-indigo-500/5 border border-blue-100/50 dark:border-blue-500/10 shadow-[0_8px_32px_rgba(14,165,233,0.15)] dark:shadow-none"
+                  className="relative p-6 rounded-2xl bg-gradient-to-br from-white to-blue-50/50 dark:from-blue-500/5 dark:to-indigo-500/5 border border-blue-100/50 dark:border-blue-500/10 shadow-[0_8px_32px_rgba(14,165,233,0.15)] dark:shadow-none backdrop-blur-sm"
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-sky-50/50 dark:from-blue-500/10 dark:to-indigo-500/10 rounded-2xl blur-2xl opacity-50" />
-                  <p className="relative text-blue-950 dark:text-gray-300 text-sm sm:text-base leading-relaxed">
+                  <p className="relative text-blue-950 dark:text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
                     Transforming ideas into scalable solutions with cutting-edge technology
                     and innovative development.
                   </p>
@@ -73,7 +78,7 @@ export function HomeContent() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-wrap gap-4"
+                className="flex flex-wrap gap-4 pt-4"
               >
                 <SpotlightButton
                   variant="primary"
@@ -117,17 +122,19 @@ export function HomeContent() {
                   </span>
                 </SpotlightButton>
               </motion.div>
-            </div>
+            </motion.div>
 
             {/* Animated Shape */}
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 1 }}
-              className="relative w-full h-[450px] md:h-auto md:w-3/4 lg:w-auto lg:flex-1 order-1 lg:order-none"
+              className="relative w-full h-[320px] sm:h-[350px] lg:h-[500px] lg:w-[55%] order-1 lg:order-none mt-24 sm:mt-36"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-100/80 via-sky-100/80 to-transparent dark:from-blue-500/10 dark:via-transparent dark:to-transparent rounded-full blur-3xl" />
-              <AnimatedShape />
+              <div className="scale-[0.65] sm:scale-75 lg:scale-100">
+                <MinimalAnimatedShape />
+              </div>
             </motion.div>
           </div>
         </div>
