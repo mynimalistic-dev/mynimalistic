@@ -4,6 +4,8 @@ import React, { useMemo } from "react";
 import { FaReact, FaNode } from "react-icons/fa";
 import { TbBrandNextjs, TbBrandMongodb } from "react-icons/tb";
 import { SiFlutter, SiJavascript, SiTypescript } from "react-icons/si";
+// import { SiTailwindcss } from "react-icons/si";
+
 
 export const MinimalAnimatedShape = () => {
   const techIcons = [
