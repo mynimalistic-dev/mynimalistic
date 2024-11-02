@@ -51,7 +51,7 @@ export function HomeContent() {
               <div className="space-y-6">
                 <AnimatedText
                   text="Building Digital Future Together"
-                  className="text-4xl sm:text-5xl md:text-[46px] lg:text-[58px] font-bold leading-tight tracking-tight bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent"
+                  className="text-4xl sm:text-5xl md:text-[46px] lg:text-[56px] font-bold leading-tight tracking-tight bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent"
                 />
                 
                 <motion.div

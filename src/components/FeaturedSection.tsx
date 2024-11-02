@@ -43,7 +43,7 @@ export function FeaturedSection() {
   ];
 
   return (
-    <section className="relative py-20 md:py-32 overflow-hidden bg-gradient-to-b from-sky-50 via-blue-50/20 to-sky-50 dark:from-black dark:to-black">
+    <section className="relative py-16 md:py-20 overflow-hidden bg-gradient-to-b from-sky-50 via-blue-50/20 to-sky-50 dark:from-black dark:to-black">
       {/* Refined Sparkles Effect */}
       <div className="absolute inset-0 w-full h-full">
         <SparklesCore
