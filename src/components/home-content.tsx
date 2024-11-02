@@ -57,7 +57,7 @@ export function HomeContent() {
               <div className="space-y-6 lg:space-y-8">
                 <AnimatedText
                   text="Building Digital Future Together"
-                  className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight"
+                  className="text-4xl sm:text-5xl md:text-[46px] lg:text-[58px] font-bold leading-tight tracking-tight"
                 />
                 
                 {/* Description */}
