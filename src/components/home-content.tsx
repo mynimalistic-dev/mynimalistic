@@ -32,26 +32,17 @@ export function HomeContent() {
         />
       </div>
 
-      <main className="relative z-10 pt-8 md:pt-16 pb-16 px-4 md:px-8">
+      <main className="relative z-10 pt-0 md:pt-16 pb-16 px-4 md:px-8">
         <div className="max-w-7xl mx-auto">
-          <div className="flex flex-col items-center justify-between gap-8 lg:gap-16">
-            {/* Animated Shape - Moved to top for mobile */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 1 }}
-              className="w-full md:w-3/4 lg:w-full lg:flex-1 order-1 lg:order-2"
-            >
-              <AnimatedShape />
-            </motion.div>
-
-            {/* Left Content - Will appear below shape on mobile */}
-            <div className="w-full lg:flex-1 space-y-8 md:space-y-10 order-2 lg:order-1">
+          {/* Desktop: flex-row, Mobile: flex-col */}
+          <div className="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16">
+            {/* Left Content */}
+            <div className="w-full lg:w-auto lg:flex-1 space-y-4 lg:space-y-10 order-2 lg:order-none">
               {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                className="inline-flex items-center gap-2 px-3 md:px-4 py-1.5 md:py-2 rounded-full bg-sky-500/10 border border-sky-500/20 backdrop-blur-sm"
+                className="inline-flex items-center gap-2 px-3 lg:px-4 py-1.5 lg:py-2 rounded-full bg-sky-500/10 border border-sky-500/20 backdrop-blur-sm"
               >
                 <span className="relative flex h-2 w-2">
                   <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sky-400 opacity-75"></span>
@@ -62,19 +53,19 @@ export function HomeContent() {
                 </span>
               </motion.div>
               
-              {/* Main Heading */}
-              <div className="space-y-6 md:space-y-8">
+              {/* Main Heading and Description */}
+              <div className="space-y-6 lg:space-y-8">
                 <AnimatedText
                   text="Building Digital Future Together"
                   className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold leading-tight tracking-tight"
                 />
                 
-                {/* Description with Gradient Border */}
+                {/* Description */}
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.2 }}
-                  className="relative p-3 md:p-4 rounded-xl bg-sky-500/5 border border-sky-500/10"
+                  className="relative p-3 lg:p-4 rounded-xl bg-sky-500/5 border border-sky-500/10"
                 >
                   <div className="absolute inset-0 bg-gradient-to-r from-transparent via-sky-500/10 to-transparent animate-gradient" />
                   <p className="text-gray-400 text-base md:text-lg relative z-10">
@@ -89,7 +80,7 @@ export function HomeContent() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="flex flex-wrap gap-3 md:gap-4"
+                className="flex flex-wrap gap-3 lg:gap-4"
               >
                 <SpotlightButton className="relative group text-sm md:text-base">
                   <span className="relative z-10 flex items-center gap-2">
@@ -126,6 +117,18 @@ export function HomeContent() {
                 </SpotlightButton>
               </motion.div>
             </div>
+
+            {/* Animated Shape */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.8 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 1 }}
+              className="w-full h-[450px] md:h-auto md:w-3/4 lg:w-auto lg:flex-1 order-1 lg:order-none"
+            >
+              <div className="scale-75 md:scale-100">
+                <AnimatedShape />
+              </div>
+            </motion.div>
           </div>
         </div>
       </main>
