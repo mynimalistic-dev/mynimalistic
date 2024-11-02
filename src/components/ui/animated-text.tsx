@@ -20,9 +20,9 @@ export function AnimatedText({ text, className }: AnimatedTextProps) {
   return (
     <div className={className}>
       <div className="relative overflow-hidden">
-        {/* Main glowing background */}
+        {/* Enhanced glowing background for light mode */}
         <motion.div
-          className="absolute -inset-x-4 -inset-y-2 bg-sky-500/20 blur-3xl"
+          className="absolute -inset-x-4 -inset-y-2 bg-gradient-to-r from-blue-900/10 via-sky-900/5 to-blue-900/10 dark:bg-sky-500/20 blur-3xl"
           animate={{
             opacity: [0.2, 0.4, 0.2],
             scale: [0.8, 1, 0.8],
@@ -39,7 +39,7 @@ export function AnimatedText({ text, className }: AnimatedTextProps) {
           {letters.map((letter, i) => (
             <motion.span
               key={i}
-              className="relative inline-block whitespace-pre text-transparent bg-clip-text bg-gradient-to-r from-sky-300 via-sky-400 to-sky-300"
+              className="relative inline-block whitespace-pre text-transparent bg-clip-text bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 hover:from-blue-800 hover:via-sky-800 hover:to-blue-800 dark:hover:from-sky-200 dark:hover:via-sky-300 dark:hover:to-sky-200 transition-all duration-300"
               initial={{ y: 40, opacity: 0 }}
               animate={{ y: 0, opacity: 1 }}
               transition={{
@@ -55,9 +55,9 @@ export function AnimatedText({ text, className }: AnimatedTextProps) {
             >
               {letter === " " ? "\u00A0" : letter}
               
-              {/* Individual letter glow effect */}
+              {/* Enhanced letter glow effect */}
               <motion.span
-                className="absolute inset-0 bg-sky-400/40 blur-lg"
+                className="absolute inset-0 bg-gradient-to-r from-blue-900/40 to-sky-900/40 dark:from-sky-400/40 dark:to-sky-400/40 blur-lg"
                 initial={{ opacity: 0 }}
                 animate={{
                   opacity: [0, 0.4, 0],
@@ -69,10 +69,10 @@ export function AnimatedText({ text, className }: AnimatedTextProps) {
                 }}
               />
 
-              {/* Floating particles */}
+              {/* Enhanced floating particles */}
               {letter !== " " && i % 3 === 0 && (
                 <motion.span
-                  className="absolute -top-2 left-1/2 w-1 h-1 rounded-full bg-sky-400"
+                  className="absolute -top-2 left-1/2 w-1 h-1 rounded-full bg-gradient-to-r from-blue-900 to-sky-900 dark:from-sky-400 dark:to-sky-400"
                   animate={{
                     y: [-20, -40],
                     x: [-10, 10],
@@ -90,7 +90,7 @@ export function AnimatedText({ text, className }: AnimatedTextProps) {
           ))}
         </div>
 
-        {/* Animated gradient line */}
+        {/* Enhanced gradient line */}
         <motion.div
           className="absolute bottom-0 left-0 right-0 h-[2px]"
           initial={{ scaleX: 0 }}
@@ -98,7 +98,7 @@ export function AnimatedText({ text, className }: AnimatedTextProps) {
           transition={{ duration: 1, delay: 0.5 }}
         >
           <motion.div
-            className="w-full h-full bg-gradient-to-r from-transparent via-sky-400 to-transparent"
+            className="w-full h-full bg-gradient-to-r from-transparent via-blue-900 to-transparent dark:via-sky-400"
             animate={{
               opacity: [0.3, 0.8, 0.3],
             }}
@@ -109,24 +109,6 @@ export function AnimatedText({ text, className }: AnimatedTextProps) {
             }}
           />
         </motion.div>
-
-        {/* Shine effect */}
-        <motion.div
-          className="absolute inset-0 bg-gradient-to-r from-transparent via-sky-400/20 to-transparent"
-          animate={{
-            x: ['-200%', '200%'],
-          }}
-          transition={{
-            duration: 3,
-            repeat: Infinity,
-            ease: "easeInOut",
-            repeatDelay: 1,
-          }}
-          style={{
-            maskImage: 'linear-gradient(to right, transparent, white, transparent)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent, white, transparent)',
-          }}
-        />
       </div>
     </div>
   );
