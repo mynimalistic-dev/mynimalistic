@@ -1,13 +1,21 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
+
+interface BackgroundGradientProps {
+  children: React.ReactNode;
+  className?: string;
+  containerClassName?: string;
+  animate?: boolean;
+}
 
 export const BackgroundGradient = ({
   children,
   className = "",
   containerClassName = "",
   animate = true,
-}) => {
+}: BackgroundGradientProps) => {
   const variants = {
     initial: {
       backgroundPosition: "0 50%",
