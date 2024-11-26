@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { SpotlightButton } from "./ui/spotlight-button";
-import { FloatingNavbar } from "./ui/floating-navbar";
+import { FloatingNavbar } from "./Menubars/floating-navbar";
 import { AnimatedText } from "./ui/animated-text";
 import { motion } from "framer-motion";
 import { MinimalAnimatedShape } from "./ui/minimal-animated-shape";
@@ -54,10 +54,16 @@ export function HomeContent() {
               
               {/* Main Content */}
               <div className="space-y-6">
-                <AnimatedText
-                  text="Building Digital Future Together"
-                  className="text-[35px] sm:text-4xl md:text-5xl lg:text-[50px] font-bold leading-tight tracking-tight bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent"
-                />
+                <div className="flex flex-col">
+                  <AnimatedText
+                    text="Simplicity Drives"
+                    className="text-[35px] sm:text-4xl md:text-5xl lg:text-[50px] font-bold leading-tight tracking-tight bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent"
+                  />
+                  <AnimatedText
+                    text="Innovation"
+                    className="text-[35px] sm:text-4xl md:text-5xl lg:text-[50px] font-bold leading-tight tracking-tight bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent mt-1"
+                  />
+                </div>
                 
                 <motion.div
                   initial={{ opacity: 0, y: 20 }}
@@ -67,8 +73,7 @@ export function HomeContent() {
                 >
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-sky-50/50 dark:from-blue-500/10 dark:to-indigo-500/10 rounded-2xl blur-2xl opacity-50" />
                   <p className="relative text-blue-950 dark:text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
-                    Transforming ideas into scalable solutions with cutting-edge technology
-                    and innovative development.
+We craft simple, impactful solutions with clean design and seamless functionality, delivering tools that look great and work effortlessly.
                   </p>
                 </motion.div>
               </div>
