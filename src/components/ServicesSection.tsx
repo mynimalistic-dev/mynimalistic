@@ -1,52 +1,50 @@
 "use client";
 import React from "react";
-import { motion, useScroll, useTransform, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { SparklesCore } from "./ui/sparkles";
 import { useTheme } from "next-themes";
 import { cn } from "@/lib/utils";
 import { BackgroundGradient } from "./ui/background-gradient";
 import { 
-  Rocket, 
-  Network, 
-  Cloud, 
-  Settings2
+  Smartphone, 
+  Globe, 
+  Palette, 
+  Code
 } from "lucide-react";
 
 export function ServicesSection() {
   const { theme } = useTheme();
-  const { scrollYProgress } = useScroll();
-  const opacity = useTransform(scrollYProgress, [0, 0.3, 0.7, 1], [0, 1, 1, 0]);
   
   const services = [
     {
-      title: "App Development",
-      description: "Building next-gen applications with cutting-edge technology stack",
-      icon: <Rocket className="w-8 h-8" />,
-      technologies: ["React", "Next.js", "TypeScript"],
+      title: "Mobile Development",
+      description: "Native & cross-platform apps with seamless performance and user experience",
+      icon: <Smartphone className="w-8 h-8" />,
+      technologies: ["Flutter", "React Native"],
       gradient: "from-[#61DAFB] to-[#00FF57]",
       borderGradient: "from-cyan-400 via-cyan-500 to-emerald-500",
     },
     {
-      title: "API Integration",
-      description: "Seamless integration of RESTful & GraphQL microservices",
-      icon: <Network className="w-8 h-8" />,
-      technologies: ["GraphQL", "REST", "tRPC"],
+      title: "Web Development",
+      description: "Dynamic web apps and stunning websites with robust, scalable solutions",
+      icon: <Globe className="w-8 h-8" />,
+      technologies: ["React", "Next.js", "TypeScript"],
       gradient: "from-[#FF3366] to-[#CB5EEE]",
       borderGradient: "from-pink-500 via-purple-500 to-violet-500",
     },
     {
-      title: "Cloud Solutions",
-      description: "Enterprise-grade cloud infrastructure & scaling solutions",
-      icon: <Cloud className="w-8 h-8" />,
-      technologies: ["AWS", "Azure", "GCP"],
+      title: "UI/UX Design",
+      description: "Creating intuitive, clean interfaces that seamlessly blend simplicity with visual appeal.",
+      icon: <Palette className="w-8 h-8" />,
+      technologies: ["Figma", "Adobe XD", "Sketch"],
       gradient: "from-[#FF9933] to-[#FFCC33]",
       borderGradient: "from-orange-400 via-amber-500 to-yellow-500",
     },
     {
-      title: "DevOps Services",
-      description: "Automated CI/CD pipelines & infrastructure as code",
-      icon: <Settings2 className="w-8 h-8" />,
-      technologies: ["Docker", "K8s", "Terraform"],
+      title: "Custom Solutions",
+      description: "Developing tailored digital solutions to tackle your unique business challenges efficiently.",
+      icon: <Code className="w-8 h-8" />,
+      technologies: ["GraphQL", "REST", "tRPC"],
       gradient: "from-[#6366F1] to-[#8B5CF6]",
       borderGradient: "from-indigo-400 via-indigo-500 to-purple-500",
     }
@@ -88,7 +86,7 @@ export function ServicesSection() {
         />
       </div>
 
-      <motion.div style={{ opacity }} className="relative container mx-auto px-4">
+      <div className="relative container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-20">
           <motion.div
@@ -210,7 +208,7 @@ export function ServicesSection() {
             ))}
           </AnimatePresence>
         </div>
-      </motion.div>
+      </div>
     </section>
   );
 }
