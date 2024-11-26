@@ -61,7 +61,7 @@ const TimelineStep = ({ step, index, total }: {
     <div className="relative group">
       {/* Desktop Connection Line */}
       {!isLast && (
-        <div className="hidden md:block absolute top-[2.5rem] left-[50%] w-full h-[3px] bg-muted/30">
+        <div className="hidden md:block absolute top-[3.3rem] left-[50%] w-full h-[3px] bg-muted/30">
           <motion.div
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
@@ -77,7 +77,7 @@ const TimelineStep = ({ step, index, total }: {
 
       {/* Mobile Connection Line */}
       {!isLast && (
-        <div className="md:hidden absolute left-[2.5rem] top-[50%] h-full w-[3px] bg-muted/30">
+        <div className="md:hidden absolute left-[3.2rem] top-[50%] h-full w-[3px] bg-muted/30">
           <motion.div
             initial={{ scaleY: 0 }}
             whileInView={{ scaleY: 1 }}
