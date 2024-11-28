@@ -50,7 +50,7 @@ const ServicesHero = () => {
   ];
 
   return (
-    <div className="min-h-screen relative w-full top-20  bg-gradient-to-b from-white via-gray-100 to-gray-200 dark:from-black dark:via-gray-900 dark:to-black">
+    <div className="min-h-[95vh] relative w-full lg:top-16 top-8  bg-gradient-to-b from-white via-gray-100 to-gray-200 dark:from-black dark:via-gray-900 dark:to-black">
       {/* Background Effects */}
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute inset-0 w-full h-full dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]">
