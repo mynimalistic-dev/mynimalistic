@@ -9,19 +9,19 @@ import { SiFlutter, SiJavascript, SiTypescript } from "react-icons/si";
 
 export const MinimalAnimatedShape = () => {
   const techIcons = [
-    { Icon: FaReact, color: "#61DAFB" },
-    { Icon: TbBrandNextjs, color: "#000000" },
-    { Icon: SiFlutter, color: "#02569B" },
-    { Icon: FaNode, color: "#339933" },
-    { Icon: SiJavascript, color: "#F7DF1E" },
-    { Icon: TbBrandMongodb, color: "#47A248" },
-    { Icon: SiTypescript, color: "#3178C6" },
+    { Icon: FaReact, color: "#61DAFB", name: "React" },
+    { Icon: TbBrandNextjs, color: "#ffffff", name: "Next.js" },
+    { Icon: SiFlutter, color: "#02569B", name: "Flutter" },
+    { Icon: FaNode, color: "#339933", name: "Node.js" },
+    { Icon: SiJavascript, color: "#F7DF1E", name: "JavaScript" },
+    { Icon: TbBrandMongodb, color: "#47A248", name: "MongoDB" },
+    { Icon: SiTypescript, color: "#3178C6", name: "TypeScript" },
   ];
 
   const codeElements = useMemo(() => {
     return [...Array(15)].map((_, i) => {
       const angle = (i / 15) * Math.PI * 2;
-      const radius = 200;
+      const radius = 160;
       const x = Math.cos(angle) * radius;
       const y = Math.sin(angle) * radius;
       
@@ -29,7 +29,7 @@ export const MinimalAnimatedShape = () => {
         x,
         y,
         iconIndex: i % techIcons.length,
-        offsetRadius: Math.random() * 50 + 30,
+        offsetRadius: Math.random() * 40 + 20,
         speed: Math.random() * 2 + 3,
       };
     });
@@ -43,7 +43,7 @@ export const MinimalAnimatedShape = () => {
           key={i}
           className="absolute w-[200px] h-[200px] rounded-full"
           style={{
-            background: `radial-gradient(circle, rgba(29,78,216,${0.15 - i * 0.02}) 0%, rgba(30,64,175,${0.08 - i * 0.01}) 100%)`,
+            background: `radial-gradient(circle, rgba(29,78,216,${0.25 - i * 0.03}) 0%, rgba(30,64,175,${0.15 - i * 0.02}) 100%)`,
             filter: "blur(1px)",
           }}
           animate={{
@@ -66,7 +66,7 @@ export const MinimalAnimatedShape = () => {
           {[...Array(20)].map((_, i) => (
             <motion.div
               key={i}
-              className="absolute h-[2px] w-full bg-gradient-to-r from-transparent via-blue-700/30 to-transparent dark:via-blue-500/20"
+              className="absolute h-[2px] w-full bg-gradient-to-r from-transparent via-blue-800/40 to-transparent dark:via-blue-400/30"
               style={{ top: `${(i + 1) * 5}%` }}
               animate={{
                 opacity: [0, 0.5, 0],
@@ -83,7 +83,7 @@ export const MinimalAnimatedShape = () => {
         </div>
       </div>
 
-      {/* Floating Code Elements */}
+      {/* Enhanced Tech Icons with better visibility */}
       <div className="absolute inset-0 flex items-center justify-center">
         {codeElements.map((element, i) => (
           <motion.div
@@ -105,8 +105,8 @@ export const MinimalAnimatedShape = () => {
                 element.y + Math.sin(i) * element.offsetRadius,
                 element.y
               ],
-              scale: [0.8, 1, 0.8],
-              opacity: [0.3, 0.8, 0.3],
+              scale: [0.8, 1.1, 0.8],
+              opacity: [0.8, 1, 0.8],
             }}
             transition={{
               duration: element.speed,
@@ -114,11 +114,27 @@ export const MinimalAnimatedShape = () => {
               ease: "easeInOut",
             }}
           >
-            <div className="text-2xl">
-              {React.createElement(techIcons[element.iconIndex].Icon, {
-                style: { color: techIcons[element.iconIndex].color },
-                className: "opacity-50 dark:opacity-30 hover:opacity-100 transition-opacity"
-              })}
+            <div className="group relative">
+              {/* Icon */}
+              <div className="relative text-4xl transform-gpu">
+                {React.createElement(techIcons[element.iconIndex].Icon, {
+                  style: { 
+                    color: techIcons[element.iconIndex].color,
+                  },
+                  className: `
+                    opacity-100
+                    hover:scale-125 
+                    transition-all 
+                    duration-300 
+                    p-2
+                  `
+                })}
+              </div>
+
+              {/* Tooltip */}
+              <div className="absolute -bottom-8 left-1/2 transform -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-black/80 text-white text-xs px-2 py-1 rounded whitespace-nowrap">
+                {techIcons[element.iconIndex].name}
+              </div>
             </div>
           </motion.div>
         ))}
@@ -139,7 +155,7 @@ export const MinimalAnimatedShape = () => {
         {[...Array(3)].map((_, i) => (
           <motion.div
             key={i}
-            className="absolute inset-0 border-2 border-blue-700/30 dark:border-blue-500/20 rounded-lg"
+            className="absolute inset-0 border-2 border-blue-800/40 dark:border-blue-400/30 rounded-lg"
             animate={{
               rotate: [0, 180, 360],
               scale: [1, 1.2, 1],
@@ -161,7 +177,7 @@ export const MinimalAnimatedShape = () => {
       {[...Array(20)].map((_, i) => (
         <motion.div
           key={i}
-          className="absolute w-1 h-1 bg-blue-700/40 dark:bg-blue-500/30 rounded-full"
+          className="absolute w-1 h-1 bg-blue-800/50 dark:bg-blue-400/40 rounded-full"
           initial={{
             x: 0,
             y: 0,
@@ -182,7 +198,7 @@ export const MinimalAnimatedShape = () => {
       ))}
 
       {/* Additional Depth Layer */}
-      <div className="absolute inset-0 bg-gradient-to-tr from-blue-700/5 via-transparent to-blue-900/5 dark:from-blue-500/5 dark:via-transparent dark:to-blue-600/5 rounded-3xl" />
+      <div className="absolute inset-0 bg-gradient-to-tr from-blue-800/10 via-transparent to-blue-900/10 dark:from-blue-400/10 dark:via-transparent dark:to-blue-500/10 rounded-3xl" />
     </div>
   );
 }; 
