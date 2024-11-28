@@ -20,7 +20,7 @@ export const WebDevelopment = () => {
               Web Development
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-8" />
-            <p className="text-blue-200/80 text-xl leading-relaxed max-w-3xl mx-auto">
+            <p className="dark:text-blue-200/80 text-blue-900 text-lg leading-relaxed max-w-3xl mx-auto">
               Transform your digital presence with cutting-edge web solutions combining aesthetic excellence 
               and powerful functionality. We craft responsive, scalable, and user-centric websites.
             </p>
