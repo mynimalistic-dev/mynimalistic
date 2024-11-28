@@ -138,19 +138,18 @@ export const TechStack = () => {
 
   return (
     <div className="w-full max-w-7xl mx-auto">
-      {/* Title */}
       <motion.div 
         initial={{ opacity: 0, y: 20 }}
         whileInView={{ opacity: 1, y: 0 }}
         className="text-center space-y-4 mb-20"
       >
-        <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600">
+        <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600">
           Our Technology Stack
         </h2>
         <div className="flex items-center justify-center gap-2">
-          <div className="h-[1px] w-12 bg-gradient-to-r from-blue-400 to-transparent" />
-          <Code2 className="w-5 h-5 text-blue-400" />
-          <div className="h-[1px] w-12 bg-gradient-to-l from-blue-400 to-transparent" />
+          <div className="h-[1px] w-12 bg-gradient-to-r from-gray-700 to-transparent dark:from-gray-300" />
+          <Code2 className="w-5 h-5 text-gray-700 dark:text-gray-300" />
+          <div className="h-[1px] w-12 bg-gradient-to-l from-gray-700 to-transparent dark:from-gray-300" />
         </div>
       </motion.div>
 
@@ -158,10 +157,10 @@ export const TechStack = () => {
         {/* Frontend Section */}
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-8">
-            <div className="p-2 rounded-lg bg-blue-500/10">
-              <LayoutGrid className="w-6 h-6 text-blue-400" />
+            <div className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800">
+              <LayoutGrid className="w-6 h-6 text-gray-700 dark:text-gray-300" />
             </div>
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
               Frontend Technologies
             </h3>
           </div>
@@ -174,10 +173,10 @@ export const TechStack = () => {
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-blue-500/5 backdrop-blur-sm border border-blue-500/10 rounded-xl p-4 hover:scale-105 transition-all duration-300 hover:border-blue-400/30">
+                <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 hover:scale-105 transition-all duration-300 hover:border-gray-300 dark:hover:border-gray-600 shadow-sm">
                   <div className="flex items-center gap-3">
-                    <tech.icon className="text-2xl text-blue-400" />
-                    <span className="text-blue-200/80 group-hover:text-blue-100 transition-colors">
+                    <tech.icon className={`text-2xl ${tech.color}`} />
+                    <span className="text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
                       {tech.name}
                     </span>
                   </div>
@@ -190,10 +189,10 @@ export const TechStack = () => {
         {/* Backend Section */}
         <div className="space-y-6">
           <div className="flex items-center gap-3 mb-8">
-            <div className="p-2 rounded-lg bg-blue-500/10">
-              <Server className="w-6 h-6 text-blue-400" />
+            <div className="p-2 rounded-lg bg-gray-100 dark:bg-gray-800">
+              <Server className="w-6 h-6 text-gray-700 dark:text-gray-300" />
             </div>
-            <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-400 to-blue-600 bg-clip-text text-transparent">
+            <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
               Backend Technologies
             </h3>
           </div>
@@ -206,10 +205,10 @@ export const TechStack = () => {
                 transition={{ duration: 0.3, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="bg-blue-500/5 backdrop-blur-sm border border-blue-500/10 rounded-xl p-4 hover:scale-105 transition-all duration-300 hover:border-blue-400/30">
+                <div className="bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-xl p-4 hover:scale-105 transition-all duration-300 hover:border-gray-300 dark:hover:border-gray-600 shadow-sm">
                   <div className="flex items-center gap-3">
-                    <tech.icon className="text-2xl text-blue-400" />
-                    <span className="text-blue-200/80 group-hover:text-blue-100 transition-colors">
+                    <tech.icon className={`text-2xl ${tech.color}`} />
+                    <span className="text-gray-800 dark:text-gray-200 group-hover:text-gray-900 dark:group-hover:text-white transition-colors">
                       {tech.name}
                     </span>
                   </div>
