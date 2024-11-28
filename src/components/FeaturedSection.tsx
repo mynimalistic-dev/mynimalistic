@@ -13,11 +13,17 @@ import {
   Timer,
   Wallet
 } from 'lucide-react';
+import { type ReactNode } from "react";
 
 export function FeaturedSection() {
   const { theme } = useTheme();
 
-  const features = [
+  const features: {
+    title: string;
+    description: string;
+    icon: ReactNode;
+    color: string;
+  }[] = [
     {
       title: "User-Centric Design",
       description: "Simplicity drives engagement with designs prioritizing clarity and ease of use",
@@ -127,7 +133,7 @@ export function FeaturedSection() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gradient-to-r from-blue-100 via-blue-50 to-white dark:from-blue-900/50 dark:via-blue-900/30 dark:to-blue-900/50 border border-blue-200 dark:border-blue-700/50 shadow-lg shadow-blue-500/20 dark:shadow-blue-900/30"
+            className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-gradient-to-r from-blue-100 via-blue-50 to-white dark:from-blue-900/50 dark:via-blue-900/30 dark:to-blue-900/50 border border-blue-200 dark:border-blue-700/50 shadow-lg shadow-blue-500/20 dark:shadow-blue-900/30"
           >
             <span className="relative flex h-2 w-2">
               <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-blue-600 dark:bg-blue-400 opacity-75"></span>
