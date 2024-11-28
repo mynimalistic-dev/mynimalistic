@@ -125,18 +125,19 @@ export const UiUxDesign = () => {
             transition={{ duration: 0.8 }}
             className="text-center max-w-4xl mx-auto"
           >
-            <h2 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 mb-6">
+            <h2 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-blue-700 dark:from-blue-400 dark:to-blue-600 mb-6">
               UI/UX Design
             </h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-8" />
+            <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-blue-700 dark:from-blue-400 dark:to-blue-600 mx-auto mb-8" />
   
-            <p className="text-blue-200/80 text-xl leading-relaxed max-w-3xl mx-auto">
-       We design clean, intuitive, and engaging user interfaces that enhance satisfaction and retention. Our minimalist approach ensures visually appealing and user-friendly designs.
+            <p className="text-blue-900 dark:text-blue-200/80 text-lg leading-relaxed max-w-3xl mx-auto">
+              We design clean, intuitive, and engaging user interfaces that enhance satisfaction and retention. Our minimalist approach ensures visually appealing and user-friendly designs.
             </p>
           </motion.div>
         </div>
       </section>
-       <section className="container mx-auto px-4">
+
+      <section className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -144,8 +145,10 @@ export const UiUxDesign = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h3 className="text-4xl font-bold bg-gradient-to-r bg-clip-text text-transparent from-blue-400 to-cyan-300 mb-6">Design Tools We Use</h3>
-          <p className="text-blue-200/80 text-lg max-w-3xl mx-auto">
+          <h3 className="text-4xl font-bold bg-gradient-to-r bg-clip-text text-transparent from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-300 mb-6">
+            Design Tools We Use
+          </h3>
+          <p className="text-gray-600 dark:text-blue-200/80 text-lg max-w-3xl mx-auto">
             We leverage industry-standard tools to create exceptional designs.
           </p>
         </motion.div>
@@ -153,7 +156,7 @@ export const UiUxDesign = () => {
           {tools.map((tool, index) => (
             <div
               key={index}
-              className="px-6 py-3 bg-blue-900/30 rounded-full border border-blue-700/30 text-blue-200"
+              className="px-6 py-3 bg-gray-100 dark:bg-blue-900/30 rounded-full border border-gray-200 dark:border-blue-700/30 text-gray-800 dark:text-blue-200"
             >
               {tool}
             </div>
@@ -169,8 +172,10 @@ export const UiUxDesign = () => {
           transition={{ duration: 0.6 }}
           className="text-center mb-12"
         >
-          <h3 className="text-4xl font-bold bg-gradient-to-r bg-clip-text text-transparent from-blue-400 to-cyan-300 mb-6">Our UI/UX Expertise</h3>
-          <p className="text-blue-200/80 text-lg max-w-3xl mx-auto">
+          <h3 className="text-4xl font-bold bg-gradient-to-r bg-clip-text text-transparent from-blue-600 to-cyan-600 dark:from-blue-400 dark:to-cyan-300 mb-6">
+            Our UI/UX Expertise
+          </h3>
+          <p className="text-gray-600 dark:text-blue-200/80 text-lg max-w-3xl mx-auto">
             We offer comprehensive UI/UX design services to create exceptional digital experiences.
           </p>
         </motion.div>
@@ -183,12 +188,12 @@ export const UiUxDesign = () => {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <div className="group relative overflow-hidden rounded-2xl bg-black/40 p-1">
+              <div className="group relative overflow-hidden rounded-2xl bg-gray-50 dark:bg-black/40 p-1">
                 {/* Gradient border */}
-                <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-20 group-hover:opacity-40 transition-opacity duration-300`} />
+                <div className={`absolute inset-0 bg-gradient-to-r ${item.gradient} opacity-10 dark:opacity-20 group-hover:opacity-30 dark:group-hover:opacity-40 transition-opacity duration-300`} />
                 
                 {/* Content container */}
-                <div className="relative bg-gray-900/80 backdrop-blur-xl p-6 rounded-xl h-full">
+                <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-xl p-6 rounded-xl h-full">
                   {/* Icon with gradient background */}
                   <div className={`mb-4 inline-flex rounded-xl bg-gradient-to-r ${item.gradient} p-3`}>
                     {React.createElement(item.icon, {
@@ -203,7 +208,7 @@ export const UiUxDesign = () => {
                   </h4>
                   
                   {/* Description */}
-                  <p className="text-blue-200/70 leading-relaxed">
+                  <p className="text-gray-600 dark:text-blue-200/70 leading-relaxed">
                     {item.description}
                   </p>
 
@@ -215,10 +220,6 @@ export const UiUxDesign = () => {
           ))}
         </div>
       </section>
-
-     
-
-    
     </div>
   );
 }; 
