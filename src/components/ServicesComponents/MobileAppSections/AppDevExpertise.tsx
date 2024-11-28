@@ -51,23 +51,26 @@ export const AppDevExpertise = () => {
   ];
 
   return (
-    <section className="relative py-20 ">
-      {/* Background Pattern */}
-      {/* <div className="absolute inset-0 bg-[linear-gradient(to_right,#080808_1px,transparent_1px),linear-gradient(to_bottom,#080808_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_110%)] -z-10" /> */}
+    <section className="relative py-8">
+      <div className="absolute inset-0 bg-gradient-radial from-blue-500/5 dark:from-blue-500/5 to-transparent -z-10" />
       
       <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-center mb-16"
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center space-y-4 mb-16"
         >
-          <h2 className="text-4xl font-bold mb-4 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-cyan-300">
+          <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600">
             Our Mobile App Expertise
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Comprehensive mobile solutions tailored to your specific industry needs
-          </p>
+          <div className="flex items-center justify-center gap-2">
+            <div className="h-[1px] w-12 bg-gradient-to-r from-blue-600 dark:from-blue-400 to-transparent" />
+            <Smartphone className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+            <div className="h-[1px] w-12 bg-gradient-to-l from-blue-600 dark:from-blue-400 to-transparent" />
+          </div>
+
         </motion.div>
         
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -76,22 +79,34 @@ export const AppDevExpertise = () => {
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
-              className="group relative p-8 rounded-2xl bg-gray-800/50 backdrop-blur-sm border border-gray-700/50 hover:border-blue-500/50 shadow-lg hover:shadow-blue-500/10 transition-all duration-300"
+              whileHover={{ y: -5 }}
+              className="group relative p-8 rounded-2xl 
+                bg-white dark:bg-blue-500/5 
+                backdrop-blur-sm 
+                border border-gray-200 dark:border-blue-500/10 
+                hover:border-blue-600/30 dark:hover:border-blue-400/30 
+                shadow-lg hover:shadow-blue-500/10 
+                transition-all duration-300"
             >
-              <div className={`mb-6 p-3 rounded-xl bg-gradient-to-r ${area.gradient} inline-block`}>
-                <div className="text-white">
-                  {area.icon}
+              <div className="relative z-10">
+                <div className="mb-6 p-3 rounded-xl bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600 inline-block">
+                  <div className="text-white">
+                    {area.icon}
+                  </div>
                 </div>
+                <h3 className="text-xl font-bold mb-3 text-gray-800 dark:text-blue-200/80 group-hover:text-blue-600 dark:group-hover:text-blue-100 transition-colors duration-300">
+                  {area.title}
+                </h3>
+                <p className="text-gray-600 dark:text-blue-200/60 leading-relaxed">
+                  {area.description}
+                </p>
               </div>
-              <h3 className="text-xl font-bold mb-3 text-white group-hover:text-blue-400 transition-colors duration-300">
-                {area.title}
-              </h3>
-              <p className="text-gray-400 leading-relaxed">
-                {area.description}
-              </p>
               <div 
-                className="absolute inset-0 rounded-2xl transition-opacity duration-300 opacity-0 group-hover:opacity-10 bg-gradient-to-r from-blue-500 to-cyan-400"
+                className="absolute inset-0 rounded-2xl transition-opacity duration-300 
+                  opacity-0 group-hover:opacity-10 
+                  bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600"
               />
             </motion.div>
           ))}
