@@ -69,10 +69,10 @@ export const Expertise = () => {
         whileInView={{ opacity: 1, y: 0 }}
         className="text-center space-y-4 mb-16"
       >
-        <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-500">
+        <h2 className="text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-blue-800 dark:from-blue-400 dark:to-blue-600">
           Our Web Development Expertise
         </h2>
-        <p className="text-gray-400 max-w-2xl mx-auto">
+        <p className="text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
           Delivering specialized web solutions across various industries
         </p>
       </motion.div>
@@ -86,16 +86,16 @@ export const Expertise = () => {
             transition={{ duration: 0.5, delay: area.delay }}
             className="group relative overflow-hidden"
           >
-            <div className="relative bg-black/40 backdrop-blur-sm border border-white/10 rounded-2xl p-6 hover:border-white/20 transition-all duration-300">
+            <div className="relative bg-white dark:bg-gray-800 border border-gray-200 dark:border-gray-700 rounded-2xl p-6 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 shadow-sm">
               <div className={`w-12 h-12 rounded-xl bg-gradient-to-r ${area.gradient} p-2.5 mb-4`}>
                 <area.icon className="w-full h-full text-white" strokeWidth={1.5} />
               </div>
               
-              <h3 className="text-xl font-bold text-white mb-2">
+              <h3 className="text-xl font-bold text-gray-900 dark:text-white mb-2">
                 {area.title}
               </h3>
               
-              <p className="text-gray-400 text-sm">
+              <p className="text-gray-600 dark:text-gray-400 text-sm">
                 {area.description}
               </p>
 
