@@ -2,19 +2,19 @@
 import { cn } from "@/utils/cn";
 import { AnimatePresence, motion } from "framer-motion";
 import { useState } from "react";
+import { type ReactNode } from "react";
 
-export const HoverEffect = ({
-  items,
-  className,
-}: {
+interface HoverEffectProps {
   items: {
     title: string;
     description: string;
-    icon?: string;
+    icon: ReactNode;
     color?: string;
   }[];
   className?: string;
-}) => {
+}
+
+export const HoverEffect: React.FC<HoverEffectProps> = ({ items, className }) => {
   let [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
