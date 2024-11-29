@@ -4,13 +4,13 @@ export interface Project {
   description: string;
   image: string;
   technologies: string[];
-  liveUrl?: string;
+  category: string;
   githubUrl?: string;
-  category: 'web' | 'mobile' | 'desktop' | 'other';
-  featured: boolean;
+  liveUrl?: string;
+  featured?: boolean;
   stats?: {
-    stars?: number;
-    views?: number;
-    likes?: number;
+    stars: number;
+    views: number;
+    likes: number;
   };
 }
