@@ -17,6 +17,7 @@ const navItems = [
   { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
   { name: "Projects", href: "/projects" },
+  // { name: "Contact", href: "/contact" },
 ];
 
 function MovingBorder({
@@ -183,30 +184,34 @@ export function FloatingNavbar() {
                   </div>
 
                   {/* Contact Button */}
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="relative px-5 py-2 rounded-lg text-white text-sm font-medium overflow-hidden group"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 dark:from-sky-400 dark:via-blue-500 dark:to-sky-500" />
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
-                    <span className="relative flex items-center gap-2">
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                      </svg>
-                      Contact Us
-                    </span>
-                  </motion.button>
+                  <Link href="/contact">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      className={`relative px-5 py-2 rounded-lg text-sm font-medium overflow-hidden group ${
+                        pathname === '/contact' 
+                          ? 'bg-transparent border-2 border-blue-600 dark:border-sky-400 text-blue-600 dark:text-sky-400' 
+                          : 'bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 dark:from-sky-400 dark:via-blue-500 dark:to-sky-500 text-white'
+                      }`}
+                    >
+                      <span className="relative flex items-center gap-2">
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                          />
+                        </svg>
+                        Contact Us
+                      </span>
+                    </motion.button>
+                  </Link>
                 </nav>
 
                 {/* Mobile Menu Button */}
@@ -276,30 +281,34 @@ export function FloatingNavbar() {
                   ))}
                   
                   {/* Mobile/Tablet Get Started Button */}
-                  <motion.button
-                    whileHover={{ scale: 1.01 }}
-                    whileTap={{ scale: 0.99 }}
-                    className="relative mt-2 px-4 py-3 rounded-xl text-white text-sm font-medium overflow-hidden group"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 dark:from-sky-400 dark:via-blue-500 dark:to-sky-500 opacity-90 group-hover:opacity-100 transition-opacity" />
-                    <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-white/10 via-transparent to-transparent" />
-                    <span className="relative flex items-center justify-center gap-2">
-                      <svg
-                        className="w-4 h-4"
-                        fill="none"
-                        stroke="currentColor"
-                        viewBox="0 0 24 24"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                      </svg>
-                      Contact Us
-                    </span>
-                  </motion.button>
+                  <Link href="/contact">
+                    <motion.button
+                      whileHover={{ scale: 1.01 }}
+                      whileTap={{ scale: 0.99 }}
+                      className={`relative mt-2 px-4 py-3 rounded-xl text-sm font-medium overflow-hidden group ${
+                        pathname === '/contact' 
+                          ? 'bg-transparent border-2 border-blue-600 dark:border-sky-400 text-blue-600 dark:text-sky-400' 
+                          : 'bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 dark:from-sky-400 dark:via-blue-500 dark:to-sky-500 text-white'
+                      }`}
+                    >
+                      <span className="relative flex items-center justify-center gap-2">
+                        <svg
+                          className="w-4 h-4"
+                          fill="none"
+                          stroke="currentColor"
+                          viewBox="0 0 24 24"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            strokeWidth="2"
+                            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                          />
+                        </svg>
+                        Contact Us
+                      </span>
+                    </motion.button>
+                  </Link>
                 </nav>
               </motion.div>
             )}
