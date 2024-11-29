@@ -6,6 +6,7 @@ import OurApproach from '@/components/aboutComponent/OurApproach'
 import Expertise from '@/components/aboutComponent/Expertise'
 import { FloatingNavbar } from '@/components/Menubars/floating-navbar'
 import OurTeam from '@/components/aboutComponent/OurTeam'
+import { Footer } from '@/components/Menubars/Footer'
 
 function AboutPage() {
   const expertiseItems = [
@@ -106,6 +107,7 @@ function AboutPage() {
       {/* <section className="relative">
         <Expertise expertiseItems={expertiseItems} />
       </section> */}
+      <Footer/>
     </main>
   )
 }

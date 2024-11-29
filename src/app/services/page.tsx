@@ -12,6 +12,7 @@ import {
   Palette,
   MonitorSmartphone,
 } from 'lucide-react'
+import { Footer } from '@/components/Menubars/Footer'
 
 function ServicePage() {
   const [activeTab, setActiveTab] = useState<string | null>(null)
@@ -144,6 +145,7 @@ function ServicePage() {
           )}
         </AnimatePresence>
       </div>
+      <Footer/>
     </main>
   )
 }
