@@ -10,7 +10,6 @@ import {
   Code2, 
   Smartphone, 
   Palette,
-  MonitorSmartphone,
 } from 'lucide-react'
 import { Footer } from '@/components/Menubars/Footer'
 
