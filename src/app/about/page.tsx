@@ -7,6 +7,15 @@ import Expertise from '@/components/aboutComponent/Expertise'
 import { FloatingNavbar } from '@/components/Menubars/floating-navbar'
 import OurTeam from '@/components/aboutComponent/OurTeam'
 import { Footer } from '@/components/Menubars/Footer'
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'About Us | Mynimalistic',
+  description: 'Learn more about Mynimalistic - Our history, mission, and values',
+  alternates: {
+    canonical: 'https://mynimalistic.vercel.app/about'
+  }
+}
 
 function AboutPage() {
   const expertiseItems = [
