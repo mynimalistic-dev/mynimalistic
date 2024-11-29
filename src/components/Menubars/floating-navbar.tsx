@@ -16,7 +16,7 @@ const navItems = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
-  { name: "Projects", href: "#" },
+  { name: "Projects", href: "/projects" },
 ];
 
 function MovingBorder({

@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useRef, useState } from "react";
-import { motion, useAnimation, useInView } from "framer-motion";
+import { motion, useTransform, useScroll, useSpring } from "framer-motion";
 import { cn } from "@/utils/cn";
 
 export const TracingBeam = ({
@@ -10,47 +10,74 @@ export const TracingBeam = ({
   children: React.ReactNode;
   className?: string;
 }) => {
-  const controls = useAnimation();
-  const ref = useRef(null);
-  const isInView = useInView(ref);
-  const [beamPosition, setBeamPosition] = useState({ x: 0, y: 0 });
+  const ref = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"],
+  });
+
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [svgHeight, setSvgHeight] = useState(0);
 
   useEffect(() => {
-    if (isInView) {
-      controls.start("visible");
+    if (contentRef.current) {
+      setSvgHeight(contentRef.current.offsetHeight);
     }
-  }, [isInView, controls]);
+  }, []);
 
-  const handleMouseMove = (e: React.MouseEvent) => {
-    const bounds = (e.currentTarget as HTMLElement).getBoundingClientRect();
-    const x = e.clientX - bounds.left;
-    const y = e.clientY - bounds.top;
-    setBeamPosition({ x, y });
-  };
+  const y1 = useSpring(
+    useTransform(scrollYProgress, [0, 0.8], [50, svgHeight]),
+    {
+      stiffness: 500,
+      damping: 90,
+    }
+  );
 
   return (
-    <div
+    <motion.div
       ref={ref}
-      className={cn("relative", className)}
-      onMouseMove={handleMouseMove}
+      className={cn("relative w-full", className)}
     >
-      <motion.div
-        className="pointer-events-none absolute inset-0"
-        animate={controls}
-        initial="hidden"
-        variants={{
-          hidden: { opacity: 0 },
-          visible: { opacity: 1 },
-        }}
-      >
-        <div
-          className="absolute inset-0 opacity-0 mix-blend-soft-light"
-          style={{
-            background: `radial-gradient(600px circle at ${beamPosition.x}px ${beamPosition.y}px, rgba(29, 78, 216, 0.15), transparent 80%)`,
+      <div className="absolute -left-20 top-3">
+        <motion.div
+          transition={{
+            duration: 0.2,
+            delay: 0.5,
           }}
-        />
-      </motion.div>
-      {children}
-    </div>
+          animate={{
+            height: svgHeight,
+          }}
+          className="relative h-full w-20"
+        >
+          <svg
+            viewBox={`0 0 20 ${svgHeight}`}
+            width="20"
+            height={svgHeight}
+            className="absolute left-8 top-0 h-full w-[2px] text-zinc-300/20"
+            fill="none"
+          >
+            <line
+              x1="1"
+              y1="0"
+              x2="1"
+              y2={svgHeight}
+              strokeWidth="2"
+              stroke="currentColor"
+              className="opacity-20"
+            />
+            <motion.line
+              x1="1"
+              y1="0"
+              x2="1"
+              y2={y1}
+              strokeWidth="2"
+              stroke="currentColor"
+              className="opacity-100"
+            />
+          </svg>
+        </motion.div>
+      </div>
+      <div ref={contentRef}>{children}</div>
+    </motion.div>
   );
 }; 
