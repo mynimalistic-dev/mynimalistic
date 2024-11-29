@@ -104,38 +104,46 @@ export function ProjectCard({ project }: ProjectCardProps) {
           >
             <div className="flex gap-2 sm:gap-3">
               {project.githubUrl && (
-                <motion.a
+                <a
                   href={project.githubUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-1.5 sm:p-2 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 
-                           backdrop-blur-sm border border-zinc-200 dark:border-zinc-700/50
-                           text-zinc-600 hover:text-blue-500 
-                           dark:text-zinc-400 dark:hover:text-blue-400
-                           transition-all duration-300 hover:shadow-md hover:shadow-blue-500/20
-                           active:scale-95"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="inline-block"
                 >
-                  <Github className="w-4 h-4 sm:w-5 sm:h-5" />
-                </motion.a>
+                  <motion.div
+                    className="p-1.5 sm:p-2 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 
+                             backdrop-blur-sm border border-zinc-200 dark:border-zinc-700/50
+                             text-zinc-600 hover:text-blue-500 
+                             dark:text-zinc-400 dark:hover:text-blue-400
+                             transition-all duration-300 hover:shadow-md hover:shadow-blue-500/20
+                             active:scale-95 cursor-pointer select-none"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <Github className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </motion.div>
+                </a>
               )}
               {project.liveUrl && (
-                <motion.a
+                <a
                   href={project.liveUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-1.5 sm:p-2 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 
-                           backdrop-blur-sm border border-zinc-200 dark:border-zinc-700/50
-                           text-zinc-600 hover:text-blue-500 
-                           dark:text-zinc-400 dark:hover:text-blue-400
-                           transition-all duration-300 hover:shadow-md hover:shadow-blue-500/20
-                           active:scale-95"
-                  whileHover={{ scale: 1.05, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
+                  className="inline-block"
                 >
-                  <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5" />
-                </motion.a>
+                  <motion.div
+                    className="p-1.5 sm:p-2 rounded-xl bg-zinc-50 dark:bg-zinc-800/50 
+                             backdrop-blur-sm border border-zinc-200 dark:border-zinc-700/50
+                             text-zinc-600 hover:text-blue-500 
+                             dark:text-zinc-400 dark:hover:text-blue-400
+                             transition-all duration-300 hover:shadow-md hover:shadow-blue-500/20
+                             active:scale-95 cursor-pointer select-none"
+                    whileHover={{ scale: 1.05, y: -2 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <ExternalLink className="w-4 h-4 sm:w-5 sm:h-5" />
+                  </motion.div>
+                </a>
               )}
             </div>
             <span className="text-xs sm:text-sm font-medium text-zinc-500 dark:text-zinc-400 capitalize 
