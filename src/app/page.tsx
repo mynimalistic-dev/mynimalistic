@@ -3,6 +3,15 @@ import { FeaturedSection } from "@/components/FeaturedSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { ProcessSection } from "@/components/ProcessSection";
 import { Footer } from "@/components/Menubars/Footer";
+import { Metadata } from 'next'
+
+export const metadata: Metadata = {
+  title: 'Home | Mynimalistic',
+  description: 'Welcome to Mynimalistic - Building digital future together with cutting-edge technology',
+  alternates: {
+    canonical: 'https://mynimalistic.vercel.app'
+  }
+}
 
 export default function Home() {
   return (
