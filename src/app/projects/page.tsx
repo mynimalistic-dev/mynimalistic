@@ -5,25 +5,9 @@ import { Project } from "@/components/ProjectComponent/type";
 import { TracingBeam } from "@/components/ui/tracing-beam";
 import { FloatingNavbar } from "@/components/Menubars/floating-navbar";
 import { motion } from "framer-motion";
-
-const navItems = [
-  {
-    name: "Home",
-    link: "/",
-  },
-  {
-    name: "Projects",
-    link: "/projects",
-  },
-  {
-    name: "About",
-    link: "/about",
-  },
-  {
-    name: "Contact",
-    link: "/contact",
-  },
-];
+import { Footer } from "@/components/Menubars/Footer";
+import { ProjectCTA } from "@/components/ProjectComponent/ProjectCTA";
+import { AcertimityFAQ } from "@/components/ProjectComponent/AcertimityFAQ";
 
 const projects: Project[] = [
   {
@@ -129,7 +113,7 @@ export default function ProjectPage() {
     <main className="relative min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
       {/* Floating Navigation */}
       <div className="fixed top-4 inset-x-0 z-50 max-w-2xl mx-auto px-4">
-        <FloatingNavbar navItems={navItems} />
+        <FloatingNavbar />
       </div>
 
       {/* Hero Section with TracingBeam wrapper */}
@@ -165,6 +149,9 @@ export default function ProjectPage() {
           </div>
         </section>
       </TracingBeam>
+      <ProjectCTA />
+      <AcertimityFAQ />
+      <Footer />
     </main>
   );
 }
