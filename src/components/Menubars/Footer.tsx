@@ -19,6 +19,22 @@ const company = [
   { name: "Contact", href: "#" },
 ];
 
+const sitemap = [
+  { name: "Home", href: "/" },
+  { name: "Services", href: "/services" },
+  { name: "About Us", href: "/about" },
+  { name: "Portfolio", href: "#" },
+  { name: "Blog", href: "#" },
+  { name: "Contact", href: "#" },
+];
+
+const legal = [
+  { name: "Privacy Policy", href: "#" },
+  { name: "Terms of Service", href: "#" },
+  { name: "Cookie Policy", href: "#" },
+  { name: "Sitemap", href: "/sitemap.xml" },
+];
+
 interface IconProps extends React.SVGProps<SVGSVGElement> {
   className?: string;
 }
@@ -71,241 +87,291 @@ const socialLinks = [
 ];
 
 export function Footer() {
+  const schemaData = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Mynimalistic",
+    "url": "https://mynimalistic.vercel.app",
+    "logo": "https://mynimalistic.vercel.app/logo.png",
+    "description": "Building digital future together with cutting-edge technology",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "customer service",
+      "areaServed": "Worldwide"
+    },
+    "sameAs": [
+      "https://www.linkedin.com/company/mynimalistic/about/",
+      "https://www.tumblr.com/mynimalistic",
+      "https://x.com/mynimalist_dev",
+      "https://www.instagram.com/mynimalistic.dev/"
+    ]
+  };
+
   return (
-    <footer className="relative mt-20 border-t border-blue-300 dark:border-blue-900/60 px-4">
-      {/* Unique Border & Background Treatment */}
-      
-      <div className="absolute inset-0">
-        {/* Top decorative border */}
-        <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
-        <div className="absolute top-[1px] inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-500/30 to-transparent" />
-        
-        {/* Animated corner accents */}
-        <div className="absolute top-0 left-0 w-24 h-24">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="absolute inset-0 border-l-2 border-t-2 border-blue-500/20 rounded-tl-xl"
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ 
-              opacity: [0.2, 0.5, 0.2],
-              rotate: [0, 5, 0]
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute inset-0 border-l border-t border-blue-400/20 rounded-tl-xl"
-          />
-        </div>
-         <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-70" />
-      <div className="absolute inset-x-0 top-[1px] h-px bg-gradient-to-r from-transparent via-sky-500 to-transparent opacity-40" />
-      
-      {/* Corner Accents */}
-      <div className="absolute left-0 top-0">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="w-20 h-20 border-l-2 border-t-2 border-blue-500/30 rounded-tl-xl"
-        />
-      </div>
-      <div className="absolute right-0 top-0">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.5 }}
-          animate={{ opacity: 1, scale: 1 }}
-          className="w-20 h-20 border-r-2 border-t-2 border-blue-500/30 rounded-tr-xl"
-        />
-      </div>
-
-        <div className="absolute top-0 right-0 w-24 h-24">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="absolute inset-0 border-r-2 border-t-2 border-blue-500/20 rounded-tr-xl"
-          />
-          <motion.div
-            initial={{ opacity: 0, scale: 0.5 }}
-            animate={{ 
-              opacity: [0.2, 0.5, 0.2],
-              rotate: [0, -5, 0]
-            }}
-            transition={{
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut"
-            }}
-            className="absolute inset-0 border-r border-t border-blue-400/20 rounded-tr-xl"
-          />
-        </div>
-
-        {/* Modern gradient background */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.1),rgba(59,130,246,0)_50%)] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.2),rgba(59,130,246,0)_50%)]" />
-        
-        {/* Subtle pattern overlay */}
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg1OSwxMzAsMjQ2LDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30" />
-
-        {/* Content backdrop */}
-        <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/95 to-white/80 dark:from-gray-950/80 dark:via-gray-950/95 dark:to-gray-950/80 backdrop-blur-[2px]" />
-      </div>
-
-      {/* Floating accent elements */}
-      <motion.div
-        animate={{ 
-          y: [0, -10, 0],
-          rotate: [0, 5, 0]
-        }}
-        transition={{
-          duration: 8,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="absolute top-10 right-[10%] w-24 h-24 bg-gradient-to-br from-blue-400/10 to-transparent rounded-full blur-2xl"
+    <footer role="contentinfo">
+      <script 
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(schemaData) }}
       />
-      <motion.div
-        animate={{ 
-          y: [0, 10, 0],
-          rotate: [0, -5, 0]
-        }}
-        transition={{
-          duration: 6,
-          repeat: Infinity,
-          ease: "easeInOut"
-        }}
-        className="absolute bottom-10 left-[10%] w-32 h-32 bg-gradient-to-tr from-sky-400/10 to-transparent rounded-full blur-2xl"
-      />
-
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Main Footer Content */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 py-16">
-          {/* Brand Section */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="space-y-8 lg:col-span-2"
-          >
-            <div className="space-y-4">
-              <div className="flex items-center space-x-3">
-                <div className="w-10 h-10 rounded-lg bg-gradient-to-tr from-blue-600 to-sky-400 flex items-center justify-center relative group">
-                  <div className="absolute inset-0 rounded-lg bg-blue-600 blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
-                  <span className="relative text-white font-bold text-xl">M</span>
-                </div>
-                <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent">
-                  Mynimalistic
-                </h3>
-              </div>
-              <p className="text-blue-950/80 dark:text-gray-300 max-w-md leading-relaxed">
-                Crafting digital experiences with minimalist design philosophy. 
-                We transform complex challenges into clean, efficient solutions 
-                that drive real business growth.
-              </p>
-              
-              {/* Contact Info with enhanced styling */}
-              <div className="space-y-3 pt-4">
-                <p className="flex items-center space-x-3 text-blue-950/80 dark:text-gray-300 group">
-                  <span className="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors">
-                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                    </svg>
-                  </span>
-                  <span className="group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors">
-                    contact@mynimalistic.com
-                  </span>
-                </p>
-              </div>
-            </div>
-
-            {/* Social Links with enhanced hover effects */}
-            <div className="flex gap-4">
-              {socialLinks.map((item) => (
-                <Link
-                  key={item.name}
-                  href={item.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative p-2 rounded-xl bg-gradient-to-br from-white to-blue-50 dark:from-blue-500/5 dark:to-indigo-500/5 border border-blue-100/50 dark:border-blue-500/20 hover:border-blue-500/50 dark:hover:border-blue-400/50 text-blue-950 dark:text-sky-300 transition-all duration-300"
-                >
-                  <div className="absolute inset-0 rounded-xl bg-blue-500 opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity" />
-                  {React.createElement(item.icon, {
-                    className: "w-5 h-5 transition-transform group-hover:scale-110 relative z-10"
-                  })}
-                </Link>
-              ))}
-            </div>
-          </motion.div>
-
-          {/* Services Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <h4 className="text-lg font-semibold bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent">
-              Services
-            </h4>
-            <ul className="space-y-3">
-              {services.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-blue-950/80 dark:text-gray-300 hover:text-blue-600 dark:hover:text-sky-400 transition-colors duration-200"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          {/* Company Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            className="space-y-6"
-          >
-            <h4 className="text-lg font-semibold bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent">
-              Company
-            </h4>
-            <ul className="space-y-3">
-              {company.map((item) => (
-                <li key={item.name}>
-                  <Link
-                    href={item.href}
-                    className="text-blue-950/80 dark:text-gray-300 hover:text-blue-600 dark:hover:text-sky-400 transition-colors duration-200"
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-        </div>
-
-        {/* Enhanced Bottom Bar */}
-        <motion.div 
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          className="relative border-t border-blue-200 dark:border-blue-900/50 py-8 flex flex-col sm:flex-row justify-between items-center gap-4"
-        >
-          <p className="text-sm text-blue-950/70 dark:text-gray-400">
-            © {new Date().getFullYear()} Mynimalistic. All rights reserved.
-          </p>
-          <div className="flex gap-6 text-sm text-blue-950/70 dark:text-gray-400">
-            <Link href="#" className="hover:text-blue-600 dark:hover:text-sky-400 transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="hover:text-blue-600 dark:hover:text-sky-400 transition-colors">
-              Terms of Service
-            </Link>
+      <footer className="relative mt-20 border-t border-blue-300 dark:border-blue-900/60 px-4">
+        {/* Unique Border & Background Treatment */}
+        
+        <div className="absolute inset-0">
+          {/* Top decorative border */}
+          <div className="absolute top-0 inset-x-0 h-px bg-gradient-to-r from-transparent via-blue-500/50 to-transparent" />
+          <div className="absolute top-[1px] inset-x-0 h-px bg-gradient-to-r from-transparent via-sky-500/30 to-transparent" />
+          
+          {/* Animated corner accents */}
+          <div className="absolute top-0 left-0 w-24 h-24">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="absolute inset-0 border-l-2 border-t-2 border-blue-500/20 rounded-tl-xl"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ 
+                opacity: [0.2, 0.5, 0.2],
+                rotate: [0, 5, 0]
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute inset-0 border-l border-t border-blue-400/20 rounded-tl-xl"
+            />
           </div>
-        </motion.div>
-      </div>
+           <div className="absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-blue-500 to-transparent opacity-70" />
+        <div className="absolute inset-x-0 top-[1px] h-px bg-gradient-to-r from-transparent via-sky-500 to-transparent opacity-40" />
+        
+        {/* Corner Accents */}
+        <div className="absolute left-0 top-0">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="w-20 h-20 border-l-2 border-t-2 border-blue-500/30 rounded-tl-xl"
+          />
+        </div>
+        <div className="absolute right-0 top-0">
+          <motion.div 
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ opacity: 1, scale: 1 }}
+            className="w-20 h-20 border-r-2 border-t-2 border-blue-500/30 rounded-tr-xl"
+          />
+        </div>
+
+          <div className="absolute top-0 right-0 w-24 h-24">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ opacity: 1, scale: 1 }}
+              className="absolute inset-0 border-r-2 border-t-2 border-blue-500/20 rounded-tr-xl"
+            />
+            <motion.div
+              initial={{ opacity: 0, scale: 0.5 }}
+              animate={{ 
+                opacity: [0.2, 0.5, 0.2],
+                rotate: [0, -5, 0]
+              }}
+              transition={{
+                duration: 4,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
+              className="absolute inset-0 border-r border-t border-blue-400/20 rounded-tr-xl"
+            />
+          </div>
+
+          {/* Modern gradient background */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.1),rgba(59,130,246,0)_50%)] dark:bg-[radial-gradient(circle_at_50%_120%,rgba(59,130,246,0.2),rgba(59,130,246,0)_50%)]" />
+          
+          {/* Subtle pattern overlay */}
+          <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjAiIGhlaWdodD0iNjAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PHBhdHRlcm4gaWQ9ImdyaWQiIHdpZHRoPSI2MCIgaGVpZ2h0PSI2MCIgcGF0dGVyblVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PHBhdGggZD0iTSAxMCAwIEwgMCAwIDAgMTAiIGZpbGw9Im5vbmUiIHN0cm9rZT0icmdiYSg1OSwxMzAsMjQ2LDAuMSkiIHN0cm9rZS13aWR0aD0iMSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3Qgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmlkKSIvPjwvc3ZnPg==')] opacity-30" />
+
+          {/* Content backdrop */}
+          <div className="absolute inset-0 bg-gradient-to-b from-white/80 via-white/95 to-white/80 dark:from-gray-950/80 dark:via-gray-950/95 dark:to-gray-950/80 backdrop-blur-[2px]" />
+        </div>
+
+        {/* Floating accent elements */}
+        <motion.div
+          animate={{ 
+            y: [0, -10, 0],
+            rotate: [0, 5, 0]
+          }}
+          transition={{
+            duration: 8,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute top-10 right-[10%] w-24 h-24 bg-gradient-to-br from-blue-400/10 to-transparent rounded-full blur-2xl"
+        />
+        <motion.div
+          animate={{ 
+            y: [0, 10, 0],
+            rotate: [0, -5, 0]
+          }}
+          transition={{
+            duration: 6,
+            repeat: Infinity,
+            ease: "easeInOut"
+          }}
+          className="absolute bottom-10 left-[10%] w-32 h-32 bg-gradient-to-tr from-sky-400/10 to-transparent rounded-full blur-2xl"
+        />
+
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Main Footer Content */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-12 py-16">
+            {/* Brand Section */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-8 lg:col-span-2"
+            >
+              <div className="space-y-4">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 rounded-lg bg-gradient-to-tr from-blue-600 to-sky-400 flex items-center justify-center relative group">
+                    <div className="absolute inset-0 rounded-lg bg-blue-600 blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
+                    <span className="relative text-white font-bold text-xl">M</span>
+                  </div>
+                  <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent">
+                    Mynimalistic
+                  </h3>
+                </div>
+                <p className="text-blue-950/80 dark:text-gray-300 max-w-md leading-relaxed">
+                  Crafting digital experiences with minimalist design philosophy. 
+                  We transform complex challenges into clean, efficient solutions 
+                  that drive real business growth.
+                </p>
+                
+                {/* Contact Info with enhanced styling */}
+                <div className="space-y-3 pt-4">
+                  <p className="flex items-center space-x-3 text-blue-950/80 dark:text-gray-300 group">
+                    <span className="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors">
+                      <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                      </svg>
+                    </span>
+                    <span className="group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors">
+                      contact@mynimalistic.com
+                    </span>
+                  </p>
+                </div>
+              </div>
+
+              {/* Social Links with enhanced hover effects */}
+              <div className="flex gap-4">
+                {socialLinks.map((item) => (
+                  <Link
+                    key={item.name}
+                    href={item.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative p-2 rounded-xl bg-gradient-to-br from-white to-blue-50 dark:from-blue-500/5 dark:to-indigo-500/5 border border-blue-100/50 dark:border-blue-500/20 hover:border-blue-500/50 dark:hover:border-blue-400/50 text-blue-950 dark:text-sky-300 transition-all duration-300"
+                  >
+                    <div className="absolute inset-0 rounded-xl bg-blue-500 opacity-0 group-hover:opacity-10 dark:group-hover:opacity-20 transition-opacity" />
+                    {React.createElement(item.icon, {
+                      className: "w-5 h-5 transition-transform group-hover:scale-110 relative z-10"
+                    })}
+                  </Link>
+                ))}
+              </div>
+            </motion.div>
+
+            {/* Services Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h4 className="text-lg font-semibold bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent">
+                Services
+              </h4>
+              <ul className="space-y-3">
+                {services.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-blue-950/80 dark:text-gray-300 hover:text-blue-600 dark:hover:text-sky-400 transition-colors duration-200"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Sitemap Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h4 className="text-lg font-semibold bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent">
+                Sitemap
+              </h4>
+              <ul className="space-y-3">
+                {sitemap.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-blue-950/80 dark:text-gray-300 hover:text-blue-600 dark:hover:text-sky-400 transition-colors duration-200"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+
+            {/* Legal Links */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              className="space-y-6"
+            >
+              <h4 className="text-lg font-semibold bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent">
+                Legal
+              </h4>
+              <ul className="space-y-3">
+                {legal.map((item) => (
+                  <li key={item.name}>
+                    <Link
+                      href={item.href}
+                      className="text-blue-950/80 dark:text-gray-300 hover:text-blue-600 dark:hover:text-sky-400 transition-colors duration-200"
+                    >
+                      {item.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+
+          {/* Enhanced Bottom Bar */}
+          <motion.div 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            className="relative border-t border-blue-200 dark:border-blue-900/50 py-8 flex flex-col sm:flex-row justify-between items-center gap-4"
+          >
+            <p className="text-sm text-blue-950/70 dark:text-gray-400">
+              © {new Date().getFullYear()} Mynimalistic. All rights reserved.
+            </p>
+            <div className="flex gap-6 text-sm text-blue-950/70 dark:text-gray-400">
+              <Link href="#" className="hover:text-blue-600 dark:hover:text-sky-400 transition-colors">
+                Privacy Policy
+              </Link>
+              <Link href="#" className="hover:text-blue-600 dark:hover:text-sky-400 transition-colors">
+                Terms of Service
+              </Link>
+            </div>
+          </motion.div>
+        </div>
+      </footer>
     </footer>
   );
 }
