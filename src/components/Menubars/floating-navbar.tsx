@@ -9,11 +9,13 @@ import {
 } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import { ThemeToggle } from "../ui/theme-toggle";
+import { usePathname } from "next/navigation";
+import Link from "next/link";
 
 const navItems = [
-  { name: "Home", href: "#" },
+  { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
-  { name: "About", href: "#" },
+  { name: "About", href: "/about" },
   { name: "Projects", href: "#" },
 ];
 
@@ -106,8 +108,15 @@ function MovingBorder({
 }
 
 export function FloatingNavbar() {
-  const [activeItem, setActiveItem] = useState<string>("Home");
+  const pathname = usePathname();
+  const [activeItem, setActiveItem] = useState<string>("");
   const [isOpen, setIsOpen] = useState(false);
+
+  useEffect(() => {
+    const currentPath = pathname === "/" ? "Home" : 
+      navItems.find(item => item.href === pathname)?.name || "";
+    setActiveItem(currentPath);
+  }, [pathname]);
 
   return (
     <div className="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[800px] z-[100]">
@@ -143,26 +152,29 @@ export function FloatingNavbar() {
                 {/* Desktop Navigation */}
                 <nav className="hidden lg:flex items-center gap-5">
                   {navItems.map((item) => (
-                    <motion.a
+                    <Link
                       key={item.name}
                       href={item.href}
-                      onClick={() => setActiveItem(item.name)}
                       className={`relative px-3 py-1.5 text-sm font-medium transition-colors duration-300 ${
                         activeItem === item.name 
-                          ? 'text-blue-600 dark:text-sky-500' 
+                          ? 'text-blue-600 dark:text-sky-500 pointer-events-none'
                           : 'text-gray-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-sky-400'
                       }`}
-                      whileHover={{ y: -1 }}
+                      onClick={() => setActiveItem(item.name)}
                     >
-                      {item.name}
-                      {activeItem === item.name && (
-                        <motion.div
-                          className="absolute inset-0 rounded-lg bg-blue-100/50 dark:bg-sky-400/[0.1]"
-                          layoutId="navbar-active"
-                          transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
-                        />
-                      )}
-                    </motion.a>
+                      <motion.div
+                        whileHover={activeItem !== item.name ? { y: -1 } : {}}
+                      >
+                        {item.name}
+                        {activeItem === item.name && (
+                          <motion.div
+                            className="absolute inset-0 rounded-lg bg-blue-100/50 dark:bg-sky-400/[0.1]"
+                            layoutId="navbar-active"
+                            transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
+                          />
+                        )}
+                      </motion.div>
+                    </Link>
                   ))}
 
                   {/* Theme Toggle - Desktop Only */}
@@ -226,38 +238,41 @@ export function FloatingNavbar() {
               >
                 <nav className="flex flex-col gap-1 p-4">
                   {navItems.map((item) => (
-                    <motion.a
+                    <Link
                       key={item.name}
                       href={item.href}
                       className={`relative group px-4 py-3 rounded-xl transition-all duration-300 ${
                         activeItem === item.name
-                          ? 'text-blue-600 dark:text-sky-400 bg-blue-50 dark:bg-sky-400/[0.08]'
+                          ? 'text-blue-600 dark:text-sky-400 bg-blue-50 dark:bg-sky-400/[0.08] pointer-events-none'
                           : 'text-gray-600 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-sky-400 hover:bg-blue-50 dark:hover:bg-sky-400/[0.05]'
                       }`}
                       onClick={() => {
                         setActiveItem(item.name);
                         setIsOpen(false);
                       }}
-                      whileHover={{ x: 4 }}
                     >
-                      <div className="relative z-10 flex items-center justify-between">
-                        <span className="font-medium">{item.name}</span>
+                      <motion.div
+                        whileHover={activeItem !== item.name ? { x: 4 } : {}}
+                      >
+                        <div className="relative z-10 flex items-center justify-between">
+                          <span className="font-medium">{item.name}</span>
+                          {activeItem === item.name && (
+                            <motion.div
+                              initial={{ scale: 0 }}
+                              animate={{ scale: 1 }}
+                              className="h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-sky-400"
+                            />
+                          )}
+                        </div>
                         {activeItem === item.name && (
                           <motion.div
-                            initial={{ scale: 0 }}
-                            animate={{ scale: 1 }}
-                            className="h-1.5 w-1.5 rounded-full bg-blue-600 dark:bg-sky-400"
+                            layoutId="mobile-active-pill"
+                            className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-50 to-transparent dark:from-sky-400/10 dark:to-transparent"
+                            transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
                           />
                         )}
-                      </div>
-                      {activeItem === item.name && (
-                        <motion.div
-                          layoutId="mobile-active-pill"
-                          className="absolute inset-0 rounded-xl bg-gradient-to-r from-blue-50 to-transparent dark:from-sky-400/10 dark:to-transparent"
-                          transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
-                        />
-                      )}
-                    </motion.a>
+                      </motion.div>
+                    </Link>
                   ))}
                   
                   {/* Mobile/Tablet Get Started Button */}
