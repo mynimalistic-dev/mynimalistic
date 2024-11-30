@@ -1,14 +1,8 @@
-"use client";
-import React from "react";
-import { ParallaxSection } from "@/components/CareersComponent/ParallaxSection";
-import { ScrollProvider } from "@/components/CareersComponent/ScrollProvider";
+import { ParallaxSection } from '@/components/CareersComponent/ParallaxSection';
+import dynamic from 'next/dynamic';
 
-const CareersPage = () => {
-  return (
-    <ScrollProvider>
-      <ParallaxSection />
-    </ScrollProvider>
-  );
-};
 
-export default CareersPage;
+
+export default function CareersPage() {
+  return <ParallaxSection/>
+}
