@@ -5,6 +5,7 @@ import { FloatingNavbar } from "./Menubars/floating-navbar";
 import { AnimatedText } from "./ui/animated-text";
 import { motion } from "framer-motion";
 import { MinimalAnimatedShape } from "./ui/minimal-animated-shape";
+import Link from "next/link";
 
 export function HomeContent() {
   return (
@@ -85,47 +86,51 @@ We craft simple, impactful solutions with clean design and seamless functionalit
                 transition={{ delay: 0.3 }}
                 className="flex flex-wrap gap-4 pt-4"
               >
-                <SpotlightButton
-                  variant="primary"
-                  className="min-w-[160px] group"
-                >
-                  <span className="relative flex items-center gap-2">
-                    <svg
-                      className="w-4 h-4 transition-transform group-hover:rotate-12"
-                      fill="none"
-                      stroke="currentColor"
-                      viewBox="0 0 24 24"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                      />
-                    </svg>
-                    Contact Us
-                    <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300" />
-                  </span>
-                </SpotlightButton>
+                <Link href="/contact">
+                  <SpotlightButton
+                    variant="primary"
+                    className="min-w-[160px] group"
+                  >
+                    <span className="relative flex items-center gap-2">
+                      <svg
+                        className="w-4 h-4 transition-transform group-hover:rotate-12"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                      Contact Us
+                      <span className="absolute -bottom-1 left-0 w-0 h-[2px] bg-white group-hover:w-full transition-all duration-300" />
+                    </span>
+                  </SpotlightButton>
+                </Link>
                 
-                <SpotlightButton
-                  variant="secondary"
-                  className="min-w-[160px] group"
-                >
-                  <span className="relative flex items-center gap-2">
-                    Learn More
-                    <motion.span
-                      animate={{ x: [0, 4, 0] }}
-                      transition={{
-                        repeat: Infinity,
-                        duration: 1.5,
-                        ease: "easeInOut"
-                      }}
-                    >
-                      →
-                    </motion.span>
-                  </span>
-                </SpotlightButton>
+                <Link href="/about">
+                  <SpotlightButton
+                    variant="secondary"
+                    className="min-w-[160px] group"
+                  >
+                    <span className="relative flex items-center gap-2">
+                      Learn More
+                      <motion.span
+                        animate={{ x: [0, 4, 0] }}
+                        transition={{
+                          repeat: Infinity,
+                          duration: 1.5,
+                          ease: "easeInOut"
+                        }}
+                      >
+                        →
+                      </motion.span>
+                    </span>
+                  </SpotlightButton>
+                </Link>
               </motion.div>
             </motion.div>
 
