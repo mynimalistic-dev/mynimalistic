@@ -174,9 +174,7 @@ export function ProjectCTA() {
 
               {/* Secondary Button */}
               <a 
-                href="https://cal.com/yourusername"
-                target="_blank"
-                rel="noopener noreferrer"
+                href="tel:+91 8729806726"
                 className="group flex-1"
               >
                 <motion.div
