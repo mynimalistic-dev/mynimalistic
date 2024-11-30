@@ -118,7 +118,7 @@ export const UiUxDesign = () => {
           />
         </div>
 
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto lg:px-4 relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
