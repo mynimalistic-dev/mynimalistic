@@ -6,15 +6,15 @@ import { AnimatedText } from "./ui/animated-text";
 import { motion } from "framer-motion";
 import { MinimalAnimatedShape } from "./ui/minimal-animated-shape";
 import Link from "next/link";
+import Image from "next/image";
 
 export function HomeContent() {
   return (
     <div className="relative min-h-screen bg-gradient-to-b from-sky-50 via-blue-50/30 to-sky-50 dark:from-black dark:via-gray-900/50 dark:to-black overflow-hidden">
       <FloatingNavbar />
       
-      {/* Enhanced Background Effects */}
+      {/* Background Effects */}
       <div className="absolute inset-0">
-        {/* Gradient Patterns - Light Theme Only */}
         <div className="absolute inset-0 bg-[linear-gradient(to_right,#e0f2fe_1px,transparent_1px),linear-gradient(to_bottom,#e0f2fe_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_at_center,white,transparent_75%)] dark:bg-none" />
         
         <motion.div
@@ -62,21 +62,12 @@ export function HomeContent() {
                   />
                   <AnimatedText
                     text="Innovation"
-                    className="text-[35px] sm:text-4xl md:text-5xl lg:text-[50px] font-bold leading-tight tracking-tight bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent mt-1"
+                    className="text-[35px] sm:text-4xl md:text-5xl lg:text-[50px] font-bold leading-tight tracking-tight bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent"
                   />
                 </div>
-                
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 }}
-                  className="relative p-6 rounded-2xl bg-gradient-to-br from-white to-blue-50/50 dark:from-blue-500/5 dark:to-indigo-500/5 border border-blue-100/50 dark:border-blue-500/10 shadow-[0_8px_32px_rgba(14,165,233,0.15)] dark:shadow-none backdrop-blur-sm"
-                >
-                  <div className="absolute inset-0 bg-gradient-to-br from-blue-50/50 to-sky-50/50 dark:from-blue-500/10 dark:to-indigo-500/10 rounded-2xl blur-2xl opacity-50" />
-                  <p className="relative text-blue-950 dark:text-gray-300 text-sm sm:text-base lg:text-lg leading-relaxed">
-We craft simple, impactful solutions with clean design and seamless functionality, delivering tools that look great and work effortlessly.
-                  </p>
-                </motion.div>
+                <p className="text-lg text-gray-700 dark:text-gray-300 max-w-md mx-auto">
+                  We create digital experiences that are simple, impactful, and innovative, driving your business forward.
+                </p>
               </div>
 
               {/* Action Buttons */}
@@ -142,8 +133,16 @@ We craft simple, impactful solutions with clean design and seamless functionalit
               className="relative w-full h-[320px] sm:h-[350px] lg:h-[500px] lg:w-[55%] order-1 lg:order-none mt-24 sm:mt-36"
             >
               <div className="absolute inset-0 bg-gradient-to-tr from-blue-100/80 via-sky-100/80 to-transparent dark:from-blue-500/10 dark:via-transparent dark:to-transparent rounded-full blur-3xl" />
-              <div className="scale-[0.65] sm:scale-75 lg:scale-100">
+              <div className="scale-[0.65] sm:scale-75 lg:scale-100 relative">
                 <MinimalAnimatedShape />
+                <Image
+                  src="https://res.cloudinary.com/drwdoxbls/image/upload/v1732967226/Mynimalistic_szmlcx.png"
+                  alt="Company Logo"
+                  width={170}
+                  height={170}
+                  className="absolute top-[50%] left-[50%] transform -translate-x-1/2 -translate-y-1/2"
+                  priority
+                />
               </div>
             </motion.div>
           </div>
