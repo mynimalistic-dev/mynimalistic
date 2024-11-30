@@ -54,7 +54,7 @@ export const AppDevExpertise = () => {
     <section className="relative py-8">
       <div className="absolute inset-0 bg-gradient-radial from-blue-500/5 dark:from-blue-500/5 to-transparent -z-10" />
       
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto lg:px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -73,7 +73,7 @@ export const AppDevExpertise = () => {
 
         </motion.div>
         
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 lg:gap-8 gap-4">
           {expertiseAreas.map((area, index) => (
             <motion.div
               key={index}
