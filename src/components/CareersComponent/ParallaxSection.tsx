@@ -61,7 +61,12 @@ const variants = {
 };
 
 export const ParallaxSection = () => {
+  const [isMounted, setIsMounted] = useState(false);
   const [showScrollButton, setShowScrollButton] = useState(false);
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -78,6 +83,10 @@ export const ParallaxSection = () => {
       behavior: 'smooth'
     });
   };
+
+  if (!isMounted) {
+    return null;
+  }
 
   return (
     <div className="h-screen overflow-y-scroll snap-y snap-mandatory scrollbar-hide">
