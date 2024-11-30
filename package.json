@@ -9,14 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@barba/core": "^2.10.3",
     "@react-three/drei": "^9.118.0",
     "@react-three/fiber": "^8.17.10",
     "@tsparticles/engine": "^3.5.0",
     "@tsparticles/react": "^3.0.0",
     "@tsparticles/slim": "^3.7.1",
     "@vercel/analytics": "^1.4.1",
+    "aos": "^2.3.4",
     "clsx": "^2.1.1",
     "framer-motion": "^10.18.0",
+    "gsap": "^3.12.5",
+    "locomotive-scroll": "^4.1.4",
     "lucide-react": "^0.454.0",
     "next": "14.0.0",
     "next-themes": "^0.3.0",
