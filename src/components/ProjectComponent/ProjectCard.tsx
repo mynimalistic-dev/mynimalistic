@@ -12,7 +12,7 @@ interface ProjectCardProps {
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
     <CardContainer className="inter-var min-h-[500px] sm:h-[500px] w-full">
-      <CardBody className="relative h-full bg-white dark:bg-zinc-900 rounded-[22px] p-4 sm:p-6 border border-zinc-200 dark:border-zinc-800 group">
+      <CardBody className="relative h-full bg-white dark:bg-zinc-900 rounded-[22px] p-4 sm:p-5 border border-zinc-200 dark:border-zinc-800 group">
         {/* Gradient Overlay - Optimized for performance */}
         <div 
           className="absolute inset-0 rounded-[22px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
