@@ -16,8 +16,8 @@ export const MobileAppDev = () => {
           transition={{ duration: 0.8 }}
           className="container mx-auto px-4"
         >
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-5xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 mb-6">
+          <div className="text-center lg:max-w-4xl mx-auto">
+            <h2 className="lg:text-5xl text-4xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-blue-600 mb-6">
               Mobile App Development
             </h2>
             <div className="w-24 h-1 bg-gradient-to-r from-blue-400 to-blue-600 mx-auto mb-8" />
@@ -31,11 +31,11 @@ export const MobileAppDev = () => {
         </div>
       </section>
 
-      <section className="container mx-auto px-4">
+      <section className="container mx-auto ">
         <AppDevTechStack />
       </section>
 
-      <section className="container mx-auto px-4">
+      <section className="container mx-auto ">
         <AppDevExpertise />
       </section>
     </div>
