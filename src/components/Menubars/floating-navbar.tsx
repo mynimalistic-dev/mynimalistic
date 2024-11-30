@@ -14,8 +14,9 @@ import Link from "next/link";
 
 const navItems = [
   { name: "Home", href: "/" },
-  { name: "Services", href: "/services" },
   { name: "About", href: "/about" },
+  { name: "Services", href: "/services" },
+
   { name: "Projects", href: "/projects" },
   // { name: "Contact", href: "/contact" },
 ];
@@ -120,7 +121,7 @@ export function FloatingNavbar() {
   }, [pathname]);
 
   return (
-    <div className="fixed top-6 left-1/2 -translate-x-1/2 w-[90%] max-w-[800px] z-[100]">
+    <div className="fixed top-6 left-1/2 -translate-x-1/2 w-[93%] max-w-[850px] z-[100]">
       <motion.div
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
@@ -137,12 +138,14 @@ export function FloatingNavbar() {
         <div className="relative rounded-2xl bg-white/80 dark:bg-slate-900/[0.8] border border-slate-200 dark:border-slate-800 backdrop-blur-xl">
           <div className="px-6 py-4">
             <div className="flex items-center justify-between">
-              <motion.p 
-                className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-sky-600 dark:from-sky-400 dark:via-sky-500 dark:to-sky-600"
-                whileHover={{ scale: 1.02 }}
-              >
-                Mynimalistic
-              </motion.p>
+              <Link href="/">
+                <motion.p 
+                  className="text-lg font-semibold bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-sky-600 dark:from-sky-400 dark:via-sky-500 dark:to-sky-600"
+                  whileHover={{ scale: 1.02 }}
+                >
+                  Mynimalistic
+                </motion.p>
+              </Link>
 
               <div className="flex items-center gap-4">
                 {/* Theme Toggle - Mobile/Tablet Only */}
@@ -158,18 +161,18 @@ export function FloatingNavbar() {
                       href={item.href}
                       className={`relative px-3 py-1.5 text-sm font-medium transition-colors duration-300 ${
                         activeItem === item.name 
-                          ? 'text-blue-600 dark:text-sky-500 pointer-events-none'
-                          : 'text-gray-600 dark:text-neutral-400 hover:text-blue-600 dark:hover:text-sky-400'
+                          ? 'text-blue-900 dark:text-sky-300 pointer-events-none'
+                          : 'text-gray-900 dark:text-gray-200 hover:text-blue-700 dark:hover:text-sky-300'
                       }`}
                       onClick={() => setActiveItem(item.name)}
                     >
                       <motion.div
-                        whileHover={activeItem !== item.name ? { y: -1 } : {}}
+                        whileHover={activeItem !== item.name ? { y: -1, textShadow: "0px 0px 8px rgba(0, 0, 0, 0.5)" } : {}}
                       >
                         {item.name}
                         {activeItem === item.name && (
                           <motion.div
-                            className="absolute inset-0 rounded-lg bg-blue-100/50 dark:bg-sky-400/[0.1]"
+                            className="absolute inset-0 rounded-lg bg-blue-400/30 dark:bg-sky-400/[0.1]"
                             layoutId="navbar-active"
                             transition={{ type: "spring", bounce: 0.25, duration: 0.5 }}
                           />
@@ -248,7 +251,7 @@ export function FloatingNavbar() {
                       href={item.href}
                       className={`relative group px-4 py-3 rounded-xl transition-all duration-300 ${
                         activeItem === item.name
-                          ? 'text-blue-600 dark:text-sky-400 bg-blue-50 dark:bg-sky-400/[0.08] pointer-events-none'
+                          ? 'text-blue-500 dark:text-sky-400 bg-blue-50 dark:bg-sky-400/[0.08] pointer-events-none'
                           : 'text-gray-600 dark:text-neutral-300 hover:text-blue-600 dark:hover:text-sky-400 hover:bg-blue-50 dark:hover:bg-sky-400/[0.05]'
                       }`}
                       onClick={() => {
@@ -257,7 +260,7 @@ export function FloatingNavbar() {
                       }}
                     >
                       <motion.div
-                        whileHover={activeItem !== item.name ? { x: 4 } : {}}
+                        whileHover={activeItem !== item.name ? { x: 4, textShadow: "0px 0px 8px rgba(0, 0, 0, 0.5)" } : {}}
                       >
                         <div className="relative z-10 flex items-center justify-between">
                           <span className="font-medium">{item.name}</span>
@@ -285,7 +288,7 @@ export function FloatingNavbar() {
                     <motion.button
                       whileHover={{ scale: 1.01 }}
                       whileTap={{ scale: 0.99 }}
-                      className={`relative mt-2 px-4 py-3 rounded-xl text-sm font-medium overflow-hidden group ${
+                      className={`relative mt-2 w-full px-4 py-3 rounded-xl text-sm font-medium overflow-hidden group ${
                         pathname === '/contact' 
                           ? 'bg-transparent border-2 border-blue-600 dark:border-sky-400 text-blue-600 dark:text-sky-400' 
                           : 'bg-gradient-to-r from-blue-600 via-sky-600 to-blue-600 dark:from-sky-400 dark:via-blue-500 dark:to-sky-500 text-white'
