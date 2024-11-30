@@ -49,8 +49,7 @@ export const MinimalAnimatedShape = () => {
           animate={{
             scale: [1, 1.2, 1],
             rotate: [0, 180, 360],
-            x: [0, 0, 0],
-            y: [0, 0, 0],
+           
           }}
           transition={{
             duration: 15 + i * 2,
