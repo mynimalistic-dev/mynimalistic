@@ -1,5 +1,4 @@
 import { ParallaxSection } from '@/components/CareersComponent/ParallaxSection';
-import dynamic from 'next/dynamic';
 
 
 
