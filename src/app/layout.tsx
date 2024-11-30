@@ -63,7 +63,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               "name": "Mynimalistic",
-              "url": "mynimalistic.vercel.app",
+              "url": "www.mynimalistic.tech",
               "logo": "/Mynimalistic.png",
               "description": "Building digital future together with cutting-edge technology",
               "contactPoint": {
@@ -71,10 +71,7 @@ export default function RootLayout({
                 "contactType": "customer service",
                 "areaServed": "Worldwide"
               },
-              "sameAs": [
-                "https://twitter.com/your-handle",
-                "https://linkedin.com/company/your-company",
-              ]
+             
             })
           }}
         />

@@ -4,7 +4,7 @@ export const metadata: Metadata = {
   title: 'Our Services | Mynimalistic',
   description: 'Explore our comprehensive range of services - Detailed description of your services',
   alternates: {
-    canonical: 'https://mynimalistic.vercel.app/services'
+    canonical: 'https://www.mynimalistic.tech/services'
   }
 }
 
