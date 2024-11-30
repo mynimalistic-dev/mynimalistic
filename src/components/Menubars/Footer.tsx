@@ -2,36 +2,38 @@
 import React from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
+import { FaYoutube } from "react-icons/fa6";
+import Image from "next/image";
 
 const services = [
-  { name: "Web Design", href: "#" },
-  { name: "UI/UX Design", href: "#" },
-  { name: "App Development", href: "#" },
-  { name: "Digital Solutions", href: "#" },
-  { name: "Branding", href: "#" },
+  { name: "Web Design", href: "/services" },
+  { name: "UI/UX Design", href: "/services" },
+  { name: "App Development", href: "/services" },
+  { name: "Digital Solutions", href: "/services" },
+  { name: "Branding", href: "/services" },
 ];
 
 const company = [
-  { name: "About Us", href: "#" },
-  { name: "Our Process", href: "#" },
-  { name: "Portfolio", href: "#" },
-  { name: "Careers", href: "#" },
-  { name: "Contact", href: "#" },
+  { name: "About Us", href: "/about" },
+  { name: "Our Process", href: "/" },
+  { name: "Portfolio", href: "https://drive.google.com/file/d/1HS_E8WR3CsfOL7sjPg-KW8hVWjHRRMTg/view?usp=sharing" },
+  { name: "Careers", href: "/careers" },
+  { name: "Contact", href: "/contact" },
 ];
 
 const sitemap = [
   { name: "Home", href: "/" },
   { name: "Services", href: "/services" },
   { name: "About Us", href: "/about" },
-  { name: "Portfolio", href: "#" },
-  { name: "Blog", href: "#" },
-  { name: "Contact", href: "#" },
+  {name:"Projects",href:"/projects"},
+ { name: "Portfolio", href: "https://drive.google.com/file/d/1HS_E8WR3CsfOL7sjPg-KW8hVWjHRRMTg/view?usp=sharing" },
+  { name: "Contact", href: "/contact" },
+  {name:"careers" , href:"/careers"}
 ];
 
 const legal = [
-  { name: "Privacy Policy", href: "#" },
-  { name: "Terms of Service", href: "#" },
-  { name: "Cookie Policy", href: "#" },
+  { name: "Privacy Policy", href: "/privacy-policy" },
+  { name: "Terms of Service", href: "/terms" },
   { name: "Sitemap", href: "/sitemap.xml" },
 ];
 
@@ -83,6 +85,16 @@ const socialLinks = [
         </svg>
       );
     }
+  },
+  {
+    name: "YouTube",
+    href: "https://www.youtube.com/channel/UCdrp9W--e3RN0XeMZH59NPw",
+    icon: function YouTubeIcon({ className, ...props }: IconProps) {
+      return <>
+      <FaYoutube className={className} {...props} />
+      
+      </>
+    }
   }
 ];
 
@@ -91,8 +103,8 @@ export function Footer() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "Mynimalistic",
-    "url": "https://mynimalistic.vercel.app",
-    "logo": "https://mynimalistic.vercel.app/logo.png",
+    "url": "https://www.mynimalistic.tech",
+    "logo": "https://www.mynimalistic.tech/logo.png",
     "description": "Building digital future together with cutting-edge technology",
     "contactPoint": {
       "@type": "ContactPoint",
@@ -232,11 +244,22 @@ export function Footer() {
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 rounded-lg bg-gradient-to-tr from-blue-600 to-sky-400 flex items-center justify-center relative group">
                     <div className="absolute inset-0 rounded-lg bg-blue-600 blur-lg opacity-50 group-hover:opacity-75 transition-opacity" />
-                    <span className="relative text-white font-bold text-xl">M</span>
+                    <Link href="/">
+
+                    <Image
+                      src="https://res.cloudinary.com/drwdoxbls/image/upload/v1732967223/actuallogo_n1chqc.png"
+                      alt="Mynimalistic Logo"
+                      width={40}
+                      height={40}
+                      className="relative rounded-lg"
+                    />
+                    </Link>
                   </div>
-                  <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent">
-                    Mynimalistic
-                  </h3>
+                  <Link href="/">
+                    <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-950 via-blue-900 to-sky-900 dark:from-sky-300 dark:via-sky-400 dark:to-sky-300 bg-clip-text text-transparent">
+                      Mynimalistic
+                    </h3>
+                  </Link>
                 </div>
                 <p className="text-blue-950/80 dark:text-gray-300 max-w-md leading-relaxed">
                   Crafting digital experiences with minimalist design philosophy. 
@@ -246,16 +269,16 @@ export function Footer() {
                 
                 {/* Contact Info with enhanced styling */}
                 <div className="space-y-3 pt-4">
-                  <p className="flex items-center space-x-3 text-blue-950/80 dark:text-gray-300 group">
+                  <a href="mailto:mynimalistic.dev@gmail.com" className="flex items-center space-x-3 text-blue-950/80 dark:text-gray-300 group">
                     <span className="p-2 rounded-lg bg-blue-50 dark:bg-blue-900/30 group-hover:bg-blue-100 dark:group-hover:bg-blue-900/50 transition-colors">
                       <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                       </svg>
                     </span>
                     <span className="group-hover:text-blue-600 dark:group-hover:text-sky-400 transition-colors">
-                      contact@mynimalistic.com
+                      mynimalistic.dev@gmail.com
                     </span>
-                  </p>
+                  </a>
                 </div>
               </div>
 
@@ -362,10 +385,10 @@ export function Footer() {
               © {new Date().getFullYear()} Mynimalistic. All rights reserved.
             </p>
             <div className="flex gap-6 text-sm text-blue-950/70 dark:text-gray-400">
-              <Link href="#" className="hover:text-blue-600 dark:hover:text-sky-400 transition-colors">
+              <Link href="/privacy-policy" className="hover:text-blue-600 dark:hover:text-sky-400 transition-colors">
                 Privacy Policy
               </Link>
-              <Link href="#" className="hover:text-blue-600 dark:hover:text-sky-400 transition-colors">
+              <Link href="/terms" className="hover:text-blue-600 dark:hover:text-sky-400 transition-colors">
                 Terms of Service
               </Link>
             </div>
