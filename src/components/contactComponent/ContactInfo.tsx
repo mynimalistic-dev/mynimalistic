@@ -9,44 +9,44 @@ const contactInfo: ContactInfoItem[] = [
   {
     icon: <FiMail className="w-7 h-7" />,
     title: "Email Us",
-    details: ["hello@company.com", "24/7 Online Support"],
+    details: ["mynimalistic.dev@gmail.com", "24/7 Online Support"],
   },
   {
     icon: <FiPhone className="w-7 h-7" />,
     title: "Call Us",
-    details: ["+91 9876543210", "Available 24/7"],
+    details: ["+91 8729806726", "Available 24/7"],
   },
   {
     icon: <FiGithub className="w-7 h-7" />,
     title: "Open Source",
-    details: ["github.com/yourcompany", "Check Our Latest Projects"],
+    details: ["https://github.com/mynimalistic-dev", "Check Our Latest Projects"],
   }
 ];
 
 const socialLinks = [
   {
     icon: <FiGithub className="w-5 h-5" />,
-    url: "https://github.com/yourcompany",
+    url: "https://github.com/mynimalistic-dev",
     label: "GitHub",
   },
   {
     icon: <FiLinkedin className="w-5 h-5" />,
-    url: "https://linkedin.com/company/yourcompany",
+    url: "https://www.linkedin.com/company/mynimalistic/about/",
     label: "LinkedIn",
   },
   {
     icon: <FaXTwitter className="w-5 h-5" />,
-    url: "https://x.com/yourcompany",
+    url: "https://x.com/mynimalist_dev",
     label: "X (Twitter)",
   },
   {
     icon: <FiInstagram className="w-5 h-5" />,
-    url: "https://instagram.com/yourcompany",
+    url: "https://www.instagram.com/mynimalistic.dev/",
     label: "Instagram",
   },
   {
     icon: <FaTumblr className="w-5 h-5" />,
-    url: "https://yourcompany.tumblr.com",
+    url: "https://www.tumblr.com/mynimalistic",
     label: "Tumblr",
   }
 ];
