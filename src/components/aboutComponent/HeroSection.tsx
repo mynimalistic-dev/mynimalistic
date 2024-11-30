@@ -5,6 +5,7 @@ import { motion } from 'framer-motion';
 import { SparklesCore } from '../ui/sparkles';
 import { BackgroundBeams } from '../ui/background-beams';
 import { ChevronDown } from 'lucide-react';
+import Link from 'next/link';
 
 const HeroSection: React.FC<HeroSectionProps> = ({ title, subtitle }) => {
   return (
@@ -57,31 +58,33 @@ const HeroSection: React.FC<HeroSectionProps> = ({ title, subtitle }) => {
           transition={{ delay: 0.5, duration: 0.8 }}
           className="mt-12"
         >
-          <motion.button 
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="relative group"
-          >
-            <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
-            <div className="relative px-8 py-4 bg-white dark:bg-blue-950 rounded-lg leading-none flex items-center">
-              <span className="text-gray-800 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
-                Explore Our Story
-              </span>
-              <svg
-                className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform duration-200"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M13 7l5 5m0 0l-5 5m5-5H6"
-                />
-              </svg>
-            </div>
-          </motion.button>
+          <Link href="/services">
+            <motion.button 
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="relative group"
+            >
+              <div className="absolute -inset-1 bg-gradient-to-r from-cyan-600 to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-100 transition duration-1000 group-hover:duration-200" />
+              <div className="relative px-8 py-4 bg-white dark:bg-blue-950 rounded-lg leading-none flex items-center">
+                <span className="text-gray-800 dark:text-gray-100 group-hover:text-blue-600 dark:group-hover:text-blue-400 transition-colors duration-200">
+                  Discover Our Services
+                </span>
+                <svg
+                  className="ml-2 w-5 h-5 group-hover:translate-x-2 transition-transform duration-200"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M13 7l5 5m0 0l-5 5m5-5H6"
+                  />
+                </svg>
+              </div>
+            </motion.button>
+          </Link>
         </motion.div>
       </motion.div>
 
