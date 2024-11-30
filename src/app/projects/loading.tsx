@@ -4,7 +4,7 @@ export default function Loading() {
       <div className="flex flex-col items-center gap-4">
         <div className="w-24 h-24 border-4 border-blue-500 border-t-transparent rounded-full animate-spin" />
         <p className="text-slate-600 dark:text-slate-400 animate-pulse">
-          Loading amazing projects...
+          Loading amazing projects....
         </p>
       </div>
     </div>
