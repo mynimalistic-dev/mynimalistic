@@ -50,7 +50,7 @@ const ServicesHero = () => {
   ];
 
   return (
-    <div className="min-h-[95vh] relative w-full lg:top-16 top-8  bg-gradient-to-b from-white via-gray-100 to-gray-200 dark:from-black dark:via-gray-900 dark:to-black">
+    <div className="min-h-[95vh] relative w-full lg:pt-16 pt-8 bg-gradient-to-b from-blue-50 via-blue-100 to-blue-200 dark:from-black dark:via-gray-900 dark:to-black">
       {/* Background Effects */}
       <div className="absolute inset-0 w-full h-full">
         <div className="absolute inset-0 w-full h-full dark:bg-black bg-white [mask-image:radial-gradient(ellipse_at_center,transparent_20%,black)]">
@@ -76,9 +76,9 @@ const ServicesHero = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5 }}
-              className="text-4xl sm:text-5xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-b dark:from-neutral-50 dark:to-neutral-400 from-gray-900 to-gray-600 max-w-4xl mx-auto leading-tight"
+              className="text-4xl sm:text-5xl md:text-7xl font-bold text-center bg-clip-text text-transparent bg-gradient-to-r from-blue-500 via-sky-500 to-indigo-500 dark:from-sky-300 dark:to-sky-500 max-w-4xl mx-auto leading-tight"
             >
-Simple Smart Impactful
+              Simple Smart Impactful
             </motion.h1>
             <motion.p
               initial={{ opacity: 0, y: 20 }}
@@ -103,7 +103,7 @@ Simple Smart Impactful
                 direction="right"
                 speed="slow"
               />
-                </div>
+            </div>
           </motion.div>
         </div>
 
