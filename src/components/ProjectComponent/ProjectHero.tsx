@@ -1,10 +1,8 @@
 "use client";
-import { motion, useScroll, useTransform } from "framer-motion";
+import { motion } from "framer-motion";
 import { Code2, Rocket, Laptop, Blocks } from "lucide-react";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { Feature, ProjectHeroProps } from "./types";
-import { cn } from "@/lib/utils";
-import { FeatureCard } from "../ui/feature-card";
 
 const features: Feature[] = [
   {
@@ -34,14 +32,6 @@ export function ProjectHero({
   description = "We transform complex business challenges into elegant digital solutions. Explore our portfolio of enterprise-grade projects that demonstrate our commitment to excellence and innovation."
 }: ProjectHeroProps) {
   const [mounted, setMounted] = useState(false);
-  const containerRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start start", "end start"]
-  });
-
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
 
   useEffect(() => {
     setMounted(true);
@@ -50,11 +40,7 @@ export function ProjectHero({
   if (!mounted) return null;
 
   return (
-    <motion.section 
-      ref={containerRef}
-      style={{ opacity }}
-      className="relative h-screen flex flex-col items-center justify-center pt-16 overflow-hidden"
-    >
+    <section className="relative min-h-screen flex flex-col items-center justify-center py-5 lg:pt-16 overflow-hidden">
       {/* Enhanced Background with more visible bubbles */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-50 via-white to-blue-50 dark:from-slate-950 dark:via-slate-900 dark:to-slate-950" />
@@ -96,19 +82,16 @@ export function ProjectHero({
         ))}
       </div>
 
-      <motion.div 
-        style={{ y }}
-        className="relative z-10 container mx-auto px-4 md:px-6 flex flex-col items-center justify-center gap-16"
-      >
+      <div className="relative h-full z-10 container mx-auto px-4 md:px-6 flex flex-col items-center justify-center gap-8 md:gap-16">
         {/* Header Content */}
-        <div className="text-center space-y-8 max-w-4xl">
+        <div className="text-center space-y-6 md:space-y-8 max-w-4xl">
           {/* Enhanced Title Animation */}
-          <div className="relative">
+          <div className="relative mt-40 sm:mt-10">
             <motion.h1
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
-              className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight"
+              className="text-5xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-tight"
             >
               <motion.span
                 className="inline-block bg-gradient-to-r from-blue-950 via-blue-800 to-blue-950 dark:from-white dark:via-blue-200 dark:to-white bg-clip-text text-transparent"
@@ -141,7 +124,7 @@ export function ProjectHero({
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               transition={{ delay: 0.4 }}
-              className="text-xl font-bold md:text-2xl bg-gradient-to-r from-blue-700 to-indigo-600 dark:from-blue-400 dark:to-blue-400/80 bg-clip-text text-transparent mt-4"
+              className="text-lg md:text-xl font-bold bg-gradient-to-r from-blue-700 to-indigo-600 dark:from-blue-400 dark:to-blue-400/80 bg-clip-text text-transparent mt-4"
             >
               Through Innovation & Expertise
             </motion.p>
@@ -167,7 +150,7 @@ export function ProjectHero({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 0.4 }}
-            className="text-base md:text-lg text-blue-950/70 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed"
+            className="text-sm md:text-base text-blue-950/70 dark:text-slate-400 max-w-2xl mx-auto leading-relaxed"
           >
             We specialize in delivering enterprise-grade digital solutions that drive business growth. 
             Our portfolio showcases our expertise in creating scalable, innovative, and impactful 
@@ -245,7 +228,7 @@ export function ProjectHero({
             ))}
           </motion.div>
         </div>
-      </motion.div>
-    </motion.section>
+      </div>
+    </section>
   );
 }
