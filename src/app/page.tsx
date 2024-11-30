@@ -1,4 +1,4 @@
-import { HomeContent } from "@/components/home-content";
+                                                                          import { HomeContent } from "@/components/home-content";
 import { FeaturedSection } from "@/components/FeaturedSection";
 import { ServicesSection } from "@/components/ServicesSection";
 import { ProcessSection } from "@/components/ProcessSection";
@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   title: 'Home | Mynimalistic',
   description: 'Welcome to Mynimalistic - Building digital future together with cutting-edge technology',
   alternates: {
-    canonical: 'https://mynimalistic.vercel.app'
+    canonical: 'https://www.mynimalistic.tech'
   }
 }
 
