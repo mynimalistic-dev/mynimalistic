@@ -5,44 +5,55 @@ import { TeamMember } from './type';
 
 const teamMembers: TeamMember[] = [
   {
-    name: "Alex Johnson",
-    role: "Founder & CEO",
-    image: "https://images.unsplash.com/photo-1560250097-0b93528c311a?q=80&w=387&auto=format&fit=crop",
-    bio: "Visionary leader with 10+ years in tech innovation",
+    name: "Agniva Maity",
+    role: "CEO",
+    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733089921/96b645d9-4341-419e-85cc-2cf60f3fa338.png",
+    bio: "",
     social: {
-      twitter: "https://twitter.com/alex",
-      linkedin: "https://linkedin.com/in/alex",
-      github: "https://github.com/alex"
+      twitter: "",
+      linkedin: "https://linkedin.com/in/",
+      github: "https://github.com/"
     }
   },
   {
-    name: "Sarah Chen",
-    role: "Lead Designer",
-    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=388&auto=format&fit=crop",
-    bio: "Creative mind behind our minimalist design philosophy",
+    name: "Aarsh Muley",
+    role: "CTO",
+    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733090097/e52c52da-14f5-4e8b-ab0e-cf479185b499.png",
+    bio: "",
     social: {
-      twitter: "https://twitter.com/sarah",
-      linkedin: "https://linkedin.com/in/sarah"
+      linkedin: "https://linkedin.com/in/sarah",
+      github: "https://github.com/"
     }
   },
   {
-    name: "Michael Park",
-    role: "Tech Lead",
-    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?q=80&w=870&auto=format&fit=crop",
-    bio: "Full-stack expert specializing in scalable solutions",
+    name: "Shivam",
+    role: "COO",
+    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733091565/0078a93f-af70-47a6-8ac4-755a3ea8996c.png",
+    bio: "",
     social: {
-      github: "https://github.com/michael",
-      linkedin: "https://linkedin.com/in/michael"
+      linkedin: "https://linkedin.com/in/sarah",
+      github: "https://github.com/"
     }
   },
   {
-    name: "Emma Wilson",
-    role: "Product Manager",
-    image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=461&auto=format&fit=crop",
-    bio: "Strategic thinker turning ideas into successful products",
+    name: "Soumyadip Maity",
+    role: "Web Lead",
+    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733090861/soumyadipmaity_uwc6jg_oxokhw.svg",
+    bio: "",
     social: {
-      twitter: "https://twitter.com/emma",
-      linkedin: "https://linkedin.com/in/emma"
+      linkedin: "https://www.linkedin.com/in/soumyadip-maity-a77b41282/",
+      github: "https://github.com/soumyadipmaity1",
+      website: "https://soumyadipmaity.com/"
+    }
+  },
+  {
+    name: "Abhay Rathore",
+    role: "App Lead",
+    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733091565/0078a93f-af70-47a6-8ac4-755a3ea8996c.png",
+    bio: "",
+    social: {
+      twitter: "https://twitter.com/",
+      linkedin: "https://linkedin.com/in/"
     }
   }
 ];
@@ -148,6 +159,7 @@ const OurTeam = () => {
                           </svg>
                         </a>
                       )}
+                     
                     </div>
                   </motion.div>
                 </div>
