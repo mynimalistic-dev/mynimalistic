@@ -54,7 +54,7 @@ const teamMembers: TeamMember[] = [
       twitter: "https://twitter.com/",
       linkedin: "https://linkedin.com/in/"
     }
-  },
+  }, 
   {
     name: "Neeladri",
     role: "Non-tech Manager",
