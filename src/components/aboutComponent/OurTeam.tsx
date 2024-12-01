@@ -43,12 +43,21 @@ const teamMembers: TeamMember[] = [
     social: {
       linkedin: "https://www.linkedin.com/in/soumyadip-maity-a77b41282/",
       github: "https://github.com/soumyadipmaity1",
-      website: "https://soumyadipmaity.com/"
     }
   },
   {
     name: "Abhay Rathore",
     role: "App Lead",
+    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733091565/0078a93f-af70-47a6-8ac4-755a3ea8996c.png",
+    bio: "",
+    social: {
+      twitter: "https://twitter.com/",
+      linkedin: "https://linkedin.com/in/"
+    }
+  },
+  {
+    name: "Neeladri",
+    role: "Non-tech Manager",
     image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733091565/0078a93f-af70-47a6-8ac4-755a3ea8996c.png",
     bio: "",
     social: {
