@@ -12,7 +12,8 @@ const sections = [
     description: "Kickstart your career with cutting-edge projects, expert mentorship, and a vibrant team.",
     bgColor: "bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 dark:from-black dark:via-blue-950 dark:to-black",
     cta: "Apply Now",
-    link: "https://forms.gle/your-google-form-link",
+    techLink: "https://forms.gle/zqTaMNWw46z1ViFQ9",
+    nonTechLink: "https://forms.gle/YUiEH4rxg2Vek21Q7"
   },
   {
     id: 2,
@@ -26,23 +27,9 @@ const sections = [
       "Inclusive Culture: A supportive and collaborative work environment",
     ],
   },
+
   {
     id: 3,
-    content: "Open Roles",
-    description: "Find your perfect role in tech innovation.",
-    bgColor: "bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 dark:from-black dark:via-blue-900 dark:to-slate-900",
-    roles: [
-      "Frontend Development: React.js, Tailwind CSS",
-      "Backend Development: Node.js, Databases",
-      "Mobile Development: Flutter, Kotlin",
-      "UI/UX Design: Figma, Adobe XD",
-      "Marketing & Content: SEO, Content Strategy",
-    ],
-    cta: "Apply Now",
-    link: "https://forms.gle/your-google-form-link",
-  },
-  {
-    id: 4,
     content: "Your Path to Mynimalistic",
     description: "Simple steps to join our innovative team.",
     bgColor: "bg-gradient-to-br from-blue-900 via-slate-800 to-blue-950 dark:from-blue-900 dark:via-black dark:to-blue-950",
@@ -52,6 +39,23 @@ const sections = [
       "Interview: Showcase your skills in a quick task and discussion",
       "Join Us: Start contributing to real-world projects",
     ],
+  },
+  {
+    id: 4,
+    content: "Open Roles",
+    description: "Find your perfect role in tech innovation.",
+    bgColor: "bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 dark:from-black dark:via-blue-900 dark:to-slate-900",
+    roles: [
+      "Frontend Development: React.js, Tailwind CSS, Next.js, TypeScript ",
+      "Backend Development: Node.js, MongoDB, PHP, Express.js ",
+      "Mobile Development: Flutter, Kotlin, Dart",
+      "UI/UX Design: Figma, Adobe XD, Photoshop",
+      "Graphic Design: Canva, Adobe Illustrator",
+      "Marketing & Content: SEO, Content Strategy",
+    ],
+    cta: "Apply Now",
+    techLink: "https://forms.gle/zqTaMNWw46z1ViFQ9",
+    nonTechLink: "https://forms.gle/YUiEH4rxg2Vek21Q7"
   },
 ];
 
@@ -174,18 +178,29 @@ export const ParallaxSection = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
-                className="flex justify-center"
+                className="flex justify-center gap-4"
               >
-                <SpotlightButton className="mt-4" variant="primary">
-                  <a
-                    href={section.link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="text-white"
-                  >
-                    {section.cta}
-                  </a>
-                </SpotlightButton>
+                <a
+                  href={section.techLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white"
+                >
+                  <SpotlightButton className="mt-4" variant="primary">
+                    Apply for Tech Roles
+                  </SpotlightButton>
+                </a>
+
+                <a
+                  href={section.nonTechLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-white"
+                >
+                  <SpotlightButton className="mt-4" variant="secondary">
+                    Apply for Non-Tech Roles
+                  </SpotlightButton>
+                </a>
               </motion.div>
             )}
           </div>
