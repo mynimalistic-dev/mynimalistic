@@ -48,7 +48,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Abhay Rathore",
     role: "App Lead",
-    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733091565/0078a93f-af70-47a6-8ac4-755a3ea8996c.png",
+    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733128802/ee764e19-1934-46cc-b39a-ef1df992b2ae.png",
     bio: "",
     social: {
       github: "https://github.com/appcreatorabhay",
