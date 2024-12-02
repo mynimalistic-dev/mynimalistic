@@ -1,4 +1,6 @@
 "use client";
+import { useEffect, useState } from "react";
+import { AnimatedMLoader } from "@/components/ui/AnimatedMLoader";
 import { ProjectGrid } from "@/components/ProjectComponent/ProjectGrid";
 import { ProjectHero } from "@/components/ProjectComponent/ProjectHero";
 import { Project } from "@/components/ProjectComponent/type";
@@ -109,6 +111,17 @@ const projects: Project[] = [
 ];
 
 export default function ProjectPage() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <AnimatedMLoader />;
+  }
+
   return (
     <main className="relative min-h-screen bg-gradient-to-b from-slate-50 to-white dark:from-slate-950 dark:to-slate-900">
       {/* Floating Navigation */}
