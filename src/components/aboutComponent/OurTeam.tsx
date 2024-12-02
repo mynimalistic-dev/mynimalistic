@@ -2,7 +2,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { TeamMember } from './type';
-import { Loader } from "@/components/ui/Loader";
 
 const teamMembers: TeamMember[] = [
   {
@@ -70,7 +69,6 @@ const teamMembers: TeamMember[] = [
 
 export const OurTeam = () => {
   return (
-    <Loader>
       <div className="py-24 px-4 relative overflow-hidden">
         {/* Enhanced Background decorations */}
         <div className="absolute inset-0">
@@ -180,7 +178,6 @@ export const OurTeam = () => {
           </div>
         </div>
       </div>
-    </Loader>
   );
 };
 
