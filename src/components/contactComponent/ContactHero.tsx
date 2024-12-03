@@ -35,7 +35,7 @@ export const ContactHero = () => {
         
         <div className="mt-12">
               <a 
-              href="https://google.com"
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf3qDudmoTujImsUFLYexgC3ypvQ4gj5U8xbhSKAjw3X3L5OA/viewform"
               target="_blank"
               rel="noopener noreferrer"
               className="cursor-pointer"
