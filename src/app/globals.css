@@ -52,10 +52,30 @@
   * {
     @apply border-border;
   }
+  
+  /* Custom scrollbar styles */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+  ::-webkit-scrollbar-track {
+    background: var(--scrollbar-track-bg, #f0f0f044); /* Light mode default */
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb-bg, #c0c0c053); /* Light mode default */
+    border-radius: 4px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--scrollbar-thumb-hover-bg, #a0a0a0); /* Light mode hover */
+  }
   body {
+    -ms-overflow-style: none;
+    scrollbar-width: thin;
+    scrollbar-color: var(--scrollbar-thumb-bg, #c0c0c0) var(--scrollbar-track-bg, #f0f0f0);
     @apply bg-background text-foreground;
   }
 }
+
 
 .bg-grid-gray {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' width='32' height='32' fill='none' stroke='rgb(15 23 42 / 0.04)'%3e%3cpath d='M0 .5H31.5V32'/%3e%3c/svg%3e");
