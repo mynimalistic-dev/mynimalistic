@@ -28,7 +28,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Shivam",
     role: "COO",
-    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733091565/0078a93f-af70-47a6-8ac4-755a3ea8996c.png",
+    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733210315/6cace281-39d6-4ae0-b940-c044813d0b89.png",
     bio: "",
     social: {
       linkedin: "https://linkedin.com/in/sarah",
@@ -58,7 +58,7 @@ const teamMembers: TeamMember[] = [
   {
     name: "Neeladri",
     role: "Non-tech Manager",
-    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733091565/0078a93f-af70-47a6-8ac4-755a3ea8996c.png",
+    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733208994/3f0dc6b6-4e32-4112-8916-0ac45ef2b7ed.png",
     bio: "",
     social: {
       twitter: "https://twitter.com/",
