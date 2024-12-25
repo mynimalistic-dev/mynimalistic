@@ -8,7 +8,7 @@ function NDA() {
       <FloatingNavbar />
       <div className="max-w-4xl mx-auto p-8 lg:pt-36 pt-32 space-y-8 text-gray-800 dark:text-gray-200">
         <h1 className="text-4xl font-extrabold text-center mb-4">Non-Disclosure Agreement (NDA)</h1>
-        <p className="text-lg text-center"><strong>Effective Date:</strong> December 20, 2004</p>
+        <p className="text-lg text-center"><strong>Effective Date:</strong> December 20, 2024</p>
         <p className="text-center">This Non-Disclosure Agreement (the "Agreement") is made between Mynimalistic ("the Company") and the individual agreeing to employment, internship, or collaboration with the Company ("the Recipient"). By joining Mynimalistic, the Recipient agrees to the following terms and conditions:</p>
         
         <div className="space-y-6">
