@@ -4,7 +4,6 @@ import "./globals.css";
 import { cn } from "@/lib/utils";
 import { ThemeProvider } from "next-themes"
 import { Analytics } from "@vercel/analytics/react"
-import { SpeedInsights } from '@vercel/speed-insights/next';
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -41,12 +40,13 @@ export const metadata: Metadata = {
     index: true,
     follow: true,
   },
-  viewport: "width=device-width, initial-scale=1",
-  themeColor: [
-    { media: "(prefers-color-scheme: light)", color: "white" },
-    { media: "(prefers-color-scheme: dark)", color: "black" },
-  ],
+
 };
+export const viewport = 'width=device-width, initial-scale=1';
+export const themeColor = [
+  { media: "(prefers-color-scheme: light)", color: "white" },
+  { media: "(prefers-color-scheme: dark)", color: "black" },
+]
 
 export default function RootLayout({
   children,
@@ -90,7 +90,7 @@ export default function RootLayout({
         >
           {children}
           <Analytics />
-          <SpeedInsights />
+          {/* <SpeedInsights /> */}
         </ThemeProvider>
       </body>
     </html>
