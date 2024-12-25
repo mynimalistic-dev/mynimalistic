@@ -53,8 +53,7 @@ const sections = [
       "Frontend Development: React.js, Tailwind CSS, Next.js, TypeScript ",
       "Backend Development: Node.js, MongoDB, PHP, Express.js ",
       "Mobile Development: Flutter, Kotlin, Dart",
-      "UI/UX Design: Figma, Adobe XD, Photoshop",
-      "Graphic Design: Canva, Adobe Illustrator",
+      "Design: Figma, Adobe XD, Photoshop,Canva, Adobe Illustrator",
       "Marketing & Content: SEO, Content Strategy",
     ],
     cta: "Apply Now",
@@ -116,7 +115,7 @@ export const ParallaxSection = () => {
           <BackgroundBeams className="opacity-20" />
           <div className="relative z-10 w-full h-full flex flex-col items-center">
             <motion.div
-              className="w-20 h-20 md:w-28 md:h-28 relative cursor-pointer"
+              className="w-20 h-20 md:w-24 md:h-24 relative cursor-pointer"
               initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
@@ -127,7 +126,7 @@ export const ParallaxSection = () => {
                 src={section.image}
                 alt={section.content}
                 fill
-                className="object-contain rounded-full sm:mt-12 mt-12"
+                className="object-contain rounded-full sm:mt-12 mt-12 mb-10"
                 priority
               />
             </motion.div>
