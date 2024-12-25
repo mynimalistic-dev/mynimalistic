@@ -67,6 +67,7 @@ const teamMembers: TeamMember[] = [
   }
 ];
 
+
 export const OurTeam = () => {
   return (
       <div className="py-24 px-4 relative overflow-hidden">
