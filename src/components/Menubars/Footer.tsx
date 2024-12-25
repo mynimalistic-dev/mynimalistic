@@ -34,6 +34,7 @@ const sitemap = [
 const legal = [
   { name: "Privacy Policy", href: "/privacy-policy" },
   { name: "Terms of Service", href: "/terms" },
+  {name:"Non-Disclosure Agreement",href:"/nda"},
   { name: "Sitemap", href: "/sitemap.xml" },
 ];
 
