@@ -21,7 +21,7 @@ const teamMembers: TeamMember[] = [
     image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733090097/e52c52da-14f5-4e8b-ab0e-cf479185b499.png",
     bio: "",
     social: {
-      linkedin: "https://linkedin.com/in/sarah",
+      linkedin: "https://linkedin.com/in/",
       github: "https://github.com/"
     }
   },
@@ -31,7 +31,7 @@ const teamMembers: TeamMember[] = [
     image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1733210315/6cace281-39d6-4ae0-b940-c044813d0b89.png",
     bio: "",
     social: {
-      linkedin: "https://linkedin.com/in/sarah",
+      linkedin: "https://linkedin.com/in/",
       github: "https://github.com/"
     }
   },
