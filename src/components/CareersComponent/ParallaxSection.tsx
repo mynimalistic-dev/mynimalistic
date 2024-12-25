@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { SpotlightButton } from "@/components/ui/spotlight-button";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { ChevronUp } from "lucide-react";
+import Image from "next/image";
 
 const sections = [
   {
@@ -12,7 +13,9 @@ const sections = [
     description: "Kickstart your career with cutting-edge projects, expert mentorship, and a vibrant team.",
     bgColor: "bg-gradient-to-br from-slate-950 via-blue-950 to-slate-900 dark:from-black dark:via-blue-950 dark:to-black",
     cta: "Apply Now",
-    link: "https://forms.gle/your-google-form-link",
+    techLink: "https://forms.gle/zqTaMNWw46z1ViFQ9",
+    nonTechLink: "https://forms.gle/YUiEH4rxg2Vek21Q7",
+    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1732967223/actuallogo_n1chqc.png"
   },
   {
     id: 2,
@@ -25,24 +28,11 @@ const sections = [
       "Skill Growth: Build an impressive portfolio for your future",
       "Inclusive Culture: A supportive and collaborative work environment",
     ],
+    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1732967223/actuallogo_n1chqc.png"
   },
+
   {
     id: 3,
-    content: "Open Roles",
-    description: "Find your perfect role in tech innovation.",
-    bgColor: "bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 dark:from-black dark:via-blue-900 dark:to-slate-900",
-    roles: [
-      "Frontend Development: React.js, Tailwind CSS",
-      "Backend Development: Node.js, Databases",
-      "Mobile Development: Flutter, Kotlin",
-      "UI/UX Design: Figma, Adobe XD",
-      "Marketing & Content: SEO, Content Strategy",
-    ],
-    cta: "Apply Now",
-    link: "https://forms.gle/your-google-form-link",
-  },
-  {
-    id: 4,
     content: "Your Path to Mynimalistic",
     description: "Simple steps to join our innovative team.",
     bgColor: "bg-gradient-to-br from-blue-900 via-slate-800 to-blue-950 dark:from-blue-900 dark:via-black dark:to-blue-950",
@@ -52,6 +42,25 @@ const sections = [
       "Interview: Showcase your skills in a quick task and discussion",
       "Join Us: Start contributing to real-world projects",
     ],
+    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1732967223/actuallogo_n1chqc.png"
+  },
+  {
+    id: 4,
+    content: "Open Roles",
+    description: "Find your perfect role in tech innovation.",
+    bgColor: "bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 dark:from-black dark:via-blue-900 dark:to-slate-900",
+    roles: [
+      "Frontend Development: React.js, Tailwind CSS, Next.js, TypeScript ",
+      "Backend Development: Node.js, MongoDB, PHP, Express.js ",
+      "Mobile Development: Flutter, Kotlin, Dart",
+      "UI/UX Design: Figma, Adobe XD, Photoshop",
+      "Graphic Design: Canva, Adobe Illustrator",
+      "Marketing & Content: SEO, Content Strategy",
+    ],
+    cta: "Apply Now",
+    techLink: "https://forms.gle/zqTaMNWw46z1ViFQ9",
+    nonTechLink: "https://forms.gle/YUiEH4rxg2Vek21Q7",
+    image: "https://res.cloudinary.com/drwdoxbls/image/upload/v1732967223/actuallogo_n1chqc.png"
   },
 ];
 
@@ -84,6 +93,10 @@ export const ParallaxSection = () => {
     });
   };
 
+  const handleImageClick = () => {
+    window.open('https://www.mynimalistic.tech', '_blank');
+  };
+
   if (!isMounted) {
     return null;
   }
@@ -93,7 +106,7 @@ export const ParallaxSection = () => {
       {sections.map((section) => (
         <motion.div
           key={section.id}
-          className={`h-screen flex flex-col items-center justify-center snap-start ${section.bgColor} shadow-xl relative overflow-hidden`}
+          className={`h-screen flex flex-col items-center snap-start ${section.bgColor} shadow-xl relative overflow-hidden`}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
@@ -101,93 +114,123 @@ export const ParallaxSection = () => {
           transition={{ duration: 1, ease: "easeInOut" }}
         >
           <BackgroundBeams className="opacity-20" />
-          <div className="relative z-10 px-4 md:px-0">
-            <motion.h1
-              className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200"
-              initial={{ scale: 0.9, opacity: 0 }}
+          <div className="relative z-10 w-full h-full flex flex-col items-center">
+            <motion.div
+              className="w-20 h-20 md:w-28 md:h-28 relative cursor-pointer"
+              initial={{ scale: 0.8, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
+              onClick={handleImageClick}
+              whileHover={{ scale: 1.05 }}
             >
-              {section.content}
-            </motion.h1>
-            <motion.p
-              className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl text-center mx-auto"
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
-            >
-              {section.description}
-            </motion.p>
-
-            {section.bullets && (
-              <motion.ul
-                className="space-y-4 mb-8 max-w-2xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+              <Image
+                src={section.image}
+                alt={section.content}
+                fill
+                className="object-contain rounded-full sm:mt-12 mt-12"
+                priority
+              />
+            </motion.div>
+            
+            <div className="flex-1 flex flex-col items-center justify-center px-4 md:px-0">
+              <motion.h1
+                className="text-4xl md:text-5xl lg:text-6xl font-extrabold text-white mb-6 text-center bg-clip-text text-transparent bg-gradient-to-r from-white to-blue-200"
+                initial={{ scale: 0.9, opacity: 0 }}
+                animate={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 0.6, ease: "easeOut" }}
               >
-                {section.bullets.map((bullet, index) => (
-                  <li key={index} className="flex items-center text-blue-100">
-                    <span className="mr-2 text-blue-400">•</span>
-                    {bullet}
-                  </li>
-                ))}
-              </motion.ul>
-            )}
-
-            {section.roles && (
-              <motion.ul
-                className="space-y-4 mb-8 max-w-2xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
+                {section.content}
+              </motion.h1>
+              <motion.p
+                className="text-lg md:text-xl text-blue-100 mb-8 max-w-2xl text-center mx-auto"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
               >
-                {section.roles.map((role, index) => (
-                  <li key={index} className="flex items-center text-blue-100">
-                    <span className="mr-2 text-blue-400">→</span>
-                    {role}
-                  </li>
-                ))}
-              </motion.ul>
-            )}
+                {section.description}
+              </motion.p>
 
-            {section.steps && (
-              <motion.div
-                className="space-y-4 mb-8 max-w-2xl mx-auto"
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.3 }}
-              >
-                {section.steps.map((step, index) => (
-                  <div key={index} className="flex items-center text-blue-100">
-                    <span className="mr-4 flex items-center justify-center w-8 h-8 rounded-full bg-blue-800 text-blue-200">
-                      {index + 1}
-                    </span>
-                    {step}
-                  </div>
-                ))}
-              </motion.div>
-            )}
+              {section.bullets && (
+                <motion.ul
+                  className="space-y-4 mb-8 max-w-2xl mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                  {section.bullets.map((bullet, index) => (
+                    <li key={index} className="flex items-center text-blue-100">
+                      <span className="mr-2 text-blue-400">•</span>
+                      {bullet}
+                    </li>
+                  ))}
+                </motion.ul>
+              )}
 
-            {section.cta && (
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="flex justify-center"
-              >
-                <SpotlightButton className="mt-4" variant="primary">
+              {section.roles && (
+                <motion.ul
+                  className="space-y-4 mb-8 max-w-2xl mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                  {section.roles.map((role, index) => (
+                    <li key={index} className="flex items-center text-blue-100">
+                      <span className="mr-2 text-blue-400">→</span>
+                      {role}
+                    </li>
+                  ))}
+                </motion.ul>
+              )}
+
+              {section.steps && (
+                <motion.div
+                  className="space-y-4 mb-8 max-w-2xl mx-auto"
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.3 }}
+                >
+                  {section.steps.map((step, index) => (
+                    <div key={index} className="flex items-center text-blue-100">
+                      <span className="mr-4 flex items-center justify-center w-8 h-8 rounded-full bg-blue-800 text-blue-200">
+                        {index + 1}
+                      </span>
+                      {step}
+                    </div>
+                  ))}
+                </motion.div>
+              )}
+
+              {section.cta && (
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.8, delay: 0.4 }}
+                  className="flex justify-center gap-4"
+                >
                   <a
-                    href={section.link}
+                    href={section.techLink}
                     target="_blank"
                     rel="noopener noreferrer"
                     className="text-white"
                   >
-                    {section.cta}
+                    <SpotlightButton className="mt-4" variant="primary">
+                      Apply for Tech Roles
+                    </SpotlightButton>
                   </a>
-                </SpotlightButton>
-              </motion.div>
-            )}
+
+                  <a
+                    href={section.nonTechLink}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white"
+                  >
+                    <SpotlightButton className="mt-4" variant="secondary">
+                      Apply for Non-Tech Roles
+                    </SpotlightButton>
+                  </a>
+                </motion.div>
+              )}
+            </div>
           </div>
         </motion.div>
       ))}

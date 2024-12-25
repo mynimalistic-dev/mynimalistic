@@ -1,3 +1,6 @@
+"use client";
+import { useEffect, useState } from "react";
+import { AnimatedMLoader } from "@/components/ui/AnimatedMLoader";
 import React from 'react'
 import HeroSection from '@/components/aboutComponent/HeroSection'
 import WelcomeSection from '@/components/aboutComponent/WelcomeSection'
@@ -7,17 +10,20 @@ import Expertise from '@/components/aboutComponent/Expertise'
 import { FloatingNavbar } from '@/components/Menubars/floating-navbar'
 import OurTeam from '@/components/aboutComponent/OurTeam'
 import { Footer } from '@/components/Menubars/Footer'
-import { Metadata } from 'next'
-
-export const metadata: Metadata = {
-  title: 'About Us | Mynimalistic',
-  description: 'Learn more about Mynimalistic - Our history, mission, and values',
-  alternates: {
-    canonical: 'https://mynimalistic.vercel.app/about'
-  }
-}
+import { metadata } from './pageMetadata'
 
 function AboutPage() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <AnimatedMLoader />;
+  }
+
   const expertiseItems = [
     { 
       category: 'Web Development', 

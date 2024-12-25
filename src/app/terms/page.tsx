@@ -1,8 +1,22 @@
+"use client";
+import { useEffect, useState } from "react";
+import { AnimatedMLoader } from "@/components/ui/AnimatedMLoader";
 import { FloatingNavbar } from '@/components/Menubars/floating-navbar';
 import { Footer } from '@/components/Menubars/Footer';
 import React from 'react';
 
 function Terms() {
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <AnimatedMLoader />;
+  }
+
   return (
     <main className="relative min-h-screen  bg-gradient-to-b from-sky-50 via-white to-sky-50 dark:from-blue-900/20 dark:via-blue-800/10 dark:to-blue-950/50">
       <FloatingNavbar />

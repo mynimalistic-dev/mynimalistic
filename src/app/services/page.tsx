@@ -1,5 +1,7 @@
 'use client'
-import React, { useState } from 'react'
+import { useEffect, useState } from "react";
+import { AnimatedMLoader } from "@/components/ui/AnimatedMLoader";
+import React from 'react'
 import ServicesHero from '@/components/ServicesComponents/ServicesHero'
 import { FloatingNavbar } from '@/components/Menubars/floating-navbar'
 import { WebDevelopment } from '@/components/ServicesComponents/WebDevelopment'
@@ -14,7 +16,17 @@ import {
 import { Footer } from '@/components/Menubars/Footer'
 
 function ServicePage() {
-  const [activeTab, setActiveTab] = useState<string | null>(null)
+  const [loading, setLoading] = useState(true);
+  const [activeTab, setActiveTab] = useState<string | null>(null);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoading(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loading) {
+    return <AnimatedMLoader />;
+  }
 
   const services = [
     {

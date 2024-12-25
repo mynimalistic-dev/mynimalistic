@@ -34,14 +34,18 @@ export const ContactHero = () => {
         </p>
         
         <div className="mt-12">
-          <SpotlightButton>
-            <a 
-              onClick={() => document.getElementById('contact-form')?.scrollIntoView({ behavior: 'smooth' })}
+              <a 
+              href="https://docs.google.com/forms/d/e/1FAIpQLSf3qDudmoTujImsUFLYexgC3ypvQ4gj5U8xbhSKAjw3X3L5OA/viewform"
+              target="_blank"
+              rel="noopener noreferrer"
               className="cursor-pointer"
             >
+          <SpotlightButton>
+      
               Start Your Project
-            </a>
           </SpotlightButton>
+                      </a>
+
         </div>
       </div>
     </div>
