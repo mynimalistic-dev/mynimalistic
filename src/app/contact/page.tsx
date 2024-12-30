@@ -2,11 +2,11 @@
 import { useEffect, useState } from "react";
 import { AnimatedMLoader } from "@/components/ui/AnimatedMLoader";
 import { ContactHero } from "@/components/contactComponent/ContactHero";
-import { ContactForm } from "@/components/contactComponent/ContactForm";
 import { ContactInfo } from "@/components/contactComponent/ContactInfo";
 import { BackgroundBeams } from "@/components/ui/background-beams";
 import { FloatingNavbar } from "@/components/Menubars/floating-navbar";
 import { Footer } from "@/components/Menubars/Footer";
+import ContactForm from "@/components/contactComponent/ContactForm";
 
 export default function ContactPage() {
   const [loading, setLoading] = useState(true);
@@ -32,10 +32,10 @@ export default function ContactPage() {
         
         {/* Contact Content */}
         <section className="container mx-auto px-4 py-20">
-          <ContactInfo />
-          <div className="mt-24 max-w-4xl mx-auto">
-            {/* <ContactForm /> */}
-          </div>
+          <div className="lg:mb-32 mb-16 max-w-4xl mx-auto">
+<ContactForm />          </div>
+<ContactInfo />
+
         </section>
       </div>
       <Footer />
